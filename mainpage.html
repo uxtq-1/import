@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- ==================================================================
+       Document Metadata & External Resources
+       ================================================================== -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OPS Online Support - Futuristic Achievements</title>
+  
+  <!-- ==================================================================
+       CSS Stylesheets & Inline Landing Page Styles
+       ================================================================== -->
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" media="(max-width:768px)" href="css/small-screens.css">
+  
+  <!-- Inline styles specific to this landing page -->
+  <style>
+    /* ==================================================================
+         Landing Page Base Styles: Default Dark Theme
+         ================================================================== */
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: Arial, sans-serif;
+      background: #000; /* Dark background */
+      color: #fff;
+      overflow: hidden;
+    }
+    /* ==================================================================
+         Particles Background Container
+         ================================================================== */
+    #particles-js {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+    /* ==================================================================
+         Landing Content Container
+         ================================================================== */
+    .landing-container {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      padding-top: 20%;
+    }
+    /* ==================================================================
+         Typewriter Effect Text
+         ================================================================== */
+    .typewriter-text {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      overflow: hidden;
+      white-space: nowrap;
+      border-right: 3px solid #fff;
+      width: 0;
+      animation: typing 4s steps(40, end) forwards, blink 0.7s step-end infinite;
+    }
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+    @keyframes blink {
+      from, to { border-color: transparent; }
+      50% { border-color: #fff; }
+    }
+    /* ==================================================================
+         Achievement Counters Styling
+         ================================================================== */
+    .achievement-counters {
+      display: flex;
+      justify-content: center;
+      gap: 50px;
+      margin-top: 40px;
+    }
+    .counter {
+      font-size: 2rem;
+    }
+    /* ==================================================================
+         Description Text
+         ================================================================== */
+    .description {
+      margin-top: 20px;
+      font-size: 1.2rem;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    /* ==================================================================
+         Call-to-Action Button Styling
+         ================================================================== */
+    .cta-button {
+      margin-top: 40px;
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      background-color: #00ffff;
+      color: #000;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .cta-button:hover {
+      background-color: #7e69ab;
+    }
+  </style>
+  
+  <!-- ==================================================================
+       Particles.js Library
+       ================================================================== -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+</head>
+<body>
+  <!-- ==================================================================
+       Particles Background Container
+       ================================================================== -->
+  <div id="particles-js"></div>
+  
+  <!-- ==================================================================
+       Landing Page Content Container
+       ================================================================== -->
+  <div class="landing-container">
+    <!-- ==================================================================
+         Typewriter Effect Text: Dynamic Intro Message
+         ================================================================== -->
+    <div class="typewriter-text">
+      OPS Online Support: Achieving Futuristic Results...
+    </div>
+    
+    <!-- ==================================================================
+         Achievement Counters: Display Outstanding Results
+         ================================================================== -->
+    <div class="achievement-counters">
+      <div class="counter" id="counter-efficiency">0%</div>
+      <div class="counter" id="counter-response">0s</div>
+      <div class="counter" id="counter-satisfaction">0%</div>
+    </div>
+    
+    <!-- ==================================================================
+         Description Paragraph: Technical, Professional Message
+         ================================================================== -->
+    <div class="description">
+      Experience the next generation of remote assistance. Our cutting-edge strategies deliver unmatched efficiency, lightning-fast response times, and customer satisfaction that redefines excellence.
+    </div>
+    
+    <!-- ==================================================================
+         Call-to-Action Button: Navigate to Main OPS Online Support Page
+         ================================================================== -->
+    <button class="cta-button" onclick="goToMainPage()">Click to Advance</button>
+  </div>
+  
+  <!-- ==================================================================
+       JavaScript: Landing Page Effects & Navigation
+       ================================================================== -->
+  <script>
+    // ------------------------------------------------------------------
+    // Particles.js Configuration: Futuristic Background Effect
+    // ------------------------------------------------------------------
+    particlesJS('particles-js', {
+      particles: {
+        number: { value: 100, density: { enable: true, value_area: 800 } },
+        color: { value: '#00ffff' },
+        shape: { type: 'circle' },
+        opacity: { value: 0.5, random: false },
+        size: { value: 3, random: true },
+        line_linked: { enable: true, distance: 150, color: '#00ffff', opacity: 0.4, width: 1 },
+        move: { enable: true, speed: 3, direction: 'none', random: false, straight: false, out_mode: 'out' }
+      },
+      interactivity: {
+        detect_on: 'canvas',
+        events: { onhover: { enable: true, mode: 'repulse' }, onclick: { enable: true, mode: 'push' }, resize: true },
+        modes: { repulse: { distance: 100, duration: 0.4 } }
+      }
+    });
+    
+    // ------------------------------------------------------------------
+    // Achievement Counters: Animate Metrics for a Sense of Achievement
+    // ------------------------------------------------------------------
+    function animateCounter(id, target, suffix) {
+      const element = document.getElementById(id);
+      let current = 0;
+      const increment = target / 200; // Adjust speed here
+      const interval = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+          current = target;
+          clearInterval(interval);
+        }
+        element.textContent = Math.floor(current) + suffix;
+      }, 10);
+    }
+    animateCounter('counter-efficiency', 95, '%');  // 95% Efficiency
+    animateCounter('counter-response', 1, 's');       // 1 second Response Time
+    animateCounter('counter-satisfaction', 98, '%');  // 98% Satisfaction
+    
+    // ------------------------------------------------------------------
+    // Navigation Function: Redirect to Main OPS Online Support Page
+    // ------------------------------------------------------------------
+    function goToMainPage() {
+      window.location.href = 'index.html'; // Update this URL as needed
+    }
+  </script>
+</body>
+</html>
