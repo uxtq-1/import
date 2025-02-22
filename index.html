@@ -1,83 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!--/* ===== Document Metadata & External Resources ===== */-->
+  <!-- ==================================================================
+       Document Metadata & External Resources
+       ================================================================== -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ops Online Support - Landing Page</title>
   
-   <!--/* ===== CSS Stylesheets ===== */-->
+  <!-- ==================================================================
+       CSS Stylesheets
+       ================================================================== -->
   <link rel="stylesheet" href="css/global.css">
   <link rel="stylesheet" media="(max-width:768px)" href="css/small-screens.css">
-  <!-- Optional: Additional particles-specific CSS can be included here -->
-  
-   <!--/* ===== Web App Manifest & Favicon ===== */-->
+  <!-- Font Awesome Stylesheet -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" crossorigin="anonymous">
   <link rel="manifest" href="manifest.json">
   <link rel="icon" href="assets/favicon.ico">
   
-   <!--/* ===== Particles.js Library ===== */-->
+  <!-- ==================================================================
+       Particles.js Library
+       ================================================================== -->
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   
-   <!--/* ===== Inline CSS: Landing Page Styles ===== */-->
+  <!-- ==================================================================
+       Inline CSS: Landing Page Specific Styles
+       ================================================================== -->
   <style>
-     /* Landing Page Base Styles - Dark Theme */
+    /* Landing Page Base Styles - Dark Theme */
     html, body {
       margin: 0;
       padding: 0;
       height: 100%;
       font-family: Arial, sans-serif;
-      background: #000;
+      background: #000; /* Dark background */
       color: #fff;
       overflow: hidden;
     }
-  /* Particles Background Container */
+    /* Particles Background Container */
     #particles-js {
       position: absolute;
       width: 100%;
       height: 100%;
       z-index: -1;
     }
-  /* Landing Content Container */
+    /* Landing Content Container */
     .landing-container {
       position: relative;
       z-index: 10;
       text-align: center;
       padding-top: 20%;
-    }
-    <!--/* Typewriter Effect Text */-->
-    .typewriter-text {
-      font-size: 2.5rem;
-      margin-bottom: 20px;
-      overflow: hidden;
-      white-space: nowrap;
-      border-right: 3px solid #fff;
-      width: 0;
-      animation: typing 4s steps(40, end) forwards, blink 0.7s step-end infinite;
-    }
-    @keyframes typing {
-      from { width: 0; }
-      to { width: 100%; }
-    }
-    @keyframes blink {
-      50% { border-color: transparent; }
-    }
-    <!--/* Achievement Counters */-->
-    .achievement-counters {
-      display: flex;
-      justify-content: center;
-      gap: 50px;
-      margin-top: 40px;
-    }
-    .counter {
-      font-size: 2rem;
-    }
-    /* Description */
-    .description {
-      margin-top: 20px;
-      font-size: 1.2rem;
-      max-width: 800px;
-      margin-left: auto;
-      margin-right: auto;
     }
     /* Call-to-Action Button */
     .cta-button {
@@ -97,52 +69,28 @@
   </style>
 </head>
 <body>
+  <!-- ==================================================================
+       Particles Background Container
+       ================================================================== -->
   <div id="particles-js"></div>
-    <div class="landing-container">
-    <div class="typewriter-text">
-      OPS Online Support: Achieving Futuristic Results...
-    </div>
-    <div class="achievement-counters">
-      <div class="counter" id="counter-efficiency">0%</div>
-      <div class="counter" id="counter-response">0s</div>
-      <div class="counter" id="counter-satisfaction">0%</div>
-    </div>
-    <div class="description">
-      Experience the next generation of remote assistance. Our cutting-edge strategies deliver unmatched efficiency, lightning-fast response times, and customer satisfaction that redefines excellence.
-    </div>
-    <button class="cta-button" onclick="goToMainPage()">Click to Advance</button>
+  
+  <!-- ==================================================================
+       Landing Page Content
+       ================================================================== -->
+  <div class="landing-container">
+    <h1>Welcome to Ops Online Support</h1>
+    <p>Experience the future of remote support and governance.</p>
+    <!-- ==================================================================
+         Call-to-Action Button: Advance to Main Site
+         ================================================================== -->
+    <button class="cta-button" onclick="window.location.href='landing-page.html'">Click to Advance</button>
   </div>
   
-  <!-- /* ===== JavaScript Files ===== */ -->
+  <!-- ==================================================================
+       JavaScript Files
+       ================================================================== -->
   <script src="js/main.js"></script>
   <script src="js/particles-config.js"></script>
-  <!-- Optional: Service Worker -->
   <script src="js/service-worker.js"></script>
-  
-  <!-- /* ===== Inline JavaScript: Landing Page Effects ===== */ -->
-  <script>
-    // Achievement Counters Animation
-    function animateCounter(id, target, suffix) {
-      const element = document.getElementById(id);
-      let current = 0;
-      const increment = target / 200;
-      const interval = setInterval(() => {
-        current += increment;
-        if (current >= target) {
-          current = target;
-          clearInterval(interval);
-        }
-        element.textContent = Math.floor(current) + suffix;
-      }, 10);
-    }
-    animateCounter('counter-efficiency', 95, '%');
-    animateCounter('counter-response', 1, 's');
-    animateCounter('counter-satisfaction', 98, '%');
-    
-    // Navigation Function for Call-to-Action Button
-    function goToMainPage() {
-      window.location.href = 'index.html'; // Update URL if needed
-    }
-  </script>
 </body>
 </html>
