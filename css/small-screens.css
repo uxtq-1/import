@@ -1,6 +1,6 @@
 /* =========================================================
-   All mobile overrides for screens ≤ 768px
-   ========================================================= */
+       All mobile overrides for screens ≤ 768px
+       ========================================================= */
 @media screen and (max-width: 768px) {
 
   /* Hide desktop nav + toggles on mobile */
@@ -120,8 +120,8 @@
 }
 
 /* =========================================================
-   For screens ≥ 769px, hide mobile nav (redundant but safe)
-   ========================================================= */
+       For screens ≥ 769px, hide mobile nav (redundant but safe)
+       ========================================================= */
 @media screen and (min-width: 769px) {
   .mobile-nav,
   .mobile-services-menu {
