@@ -24,7 +24,7 @@
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   
   <!-- ==================================================================
-       Inline CSS: Landing Page Specific Styles
+       Inline CSS: Landing Page Specific Styles & Typewriter Effect
        ================================================================== -->
   <style>
     /* Landing Page Base Styles - Dark Theme */
@@ -50,6 +50,25 @@
       z-index: 10;
       text-align: center;
       padding-top: 20%;
+    }
+    /* Typewriter Effect for Headline */
+    .typewriter {
+      overflow: hidden;              /* Hide overflowing text */
+      border-right: 0.15em solid #fff; /* Typewriter cursor */
+      white-space: nowrap;           /* Keep text in one line */
+      letter-spacing: 0.15em;
+      font-size: 2.5rem;
+      max-width: 100%;
+      margin: 0 auto;
+      animation: typing 4s steps(40, end) forwards, blink-caret 0.75s step-end infinite;
+    }
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+    @keyframes blink-caret {
+      from, to { border-color: transparent; }
+      50% { border-color: #fff; }
     }
     /* Call-to-Action Button */
     .cta-button {
@@ -78,10 +97,11 @@
        Landing Page Content
        ================================================================== -->
   <div class="landing-container">
-        <p>Experience the future of remote support.</p>
-    <!-- ==================================================================
-         Call-to-Action Button: Advance to Main Site
-         ================================================================== -->
+    <!-- Typewriter Headline -->
+    <h1 class="typewriter">Ops Online Support: The Future of Remote Support</h1>
+    <!-- Optional descriptive text -->
+    <p>Welcome to your Future Growth with our cutting-edge Remote Support.</p>
+    <!-- Call-to-Action Button -->
     <button class="cta-button" onclick="window.location.href='landing-page.html'">Click to Advance</button>
   </div>
   
