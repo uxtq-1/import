@@ -19,7 +19,7 @@ particlesJS('particles-js', {
     modes: { repulse: { distance: 100, duration: 0.4 } }
   },
   custom: {
-    text: "Welcome to your Future Growth with Remote Assistance", // Custom text (if used)
+    text: "Ops Online Support: The Future of Remote Support", // Custom text (if used)
     clickToContinue: "Click to Continue" // Custom button text (if used)
   }
 });
