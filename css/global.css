@@ -1,6 +1,6 @@
 /* ==================================================================
-   Global Reset & Basic Body Styles
-   ================================================================== */
+       Global Reset & Basic Body Styles
+       ================================================================== */
 * {
   margin: 0;
   padding: 0;
@@ -17,8 +17,8 @@ body {
 }
 
 /* ==================================================================
-   Header & Navigation
-   ================================================================== */
+       Header & Navigation
+       ================================================================== */
 header {
   background-color: #9b87f5;
   color: white;
@@ -64,8 +64,8 @@ header nav a {
 }
 
 /* ==================================================================
-   Hero Section
-   ================================================================== */
+       Hero Section
+       ================================================================== */
 .hero {
   text-align: center;
   padding: 4rem 1rem;
@@ -90,8 +90,8 @@ header nav a {
 }
 
 /* ==================================================================
-   Services Section
-   ================================================================== */
+       Services Section
+       ================================================================== */
 .services {
   padding: 2rem;
   background-color: #f1f0fb;
@@ -136,8 +136,8 @@ header nav a {
 }
 
 /* ==================================================================
-   Footer
-   ================================================================== */
+       Footer
+       ================================================================== */
 footer {
   background-color: #7e69ab;
   color: white;
@@ -147,8 +147,8 @@ footer {
 }
 
 /* ==================================================================
-   Floating Icons
-   ================================================================== */
+       Floating Icons
+       ================================================================== */
 .floating-icons {
   position: fixed;
   bottom: 110px;
@@ -180,10 +180,10 @@ footer {
 }
 
 /* ==================================================================
-   Modal Overlay & Content
-   ================================================================== */
+       Modal Overlay & Content
+       ================================================================== */
 .modal-overlay {
-  display: none; /* Hidden by default */
+  display: none;
   position: fixed;
   inset: 0;
   background-color: rgba(0,0,0,0.7);
@@ -210,8 +210,8 @@ footer {
 }
 
 /* ==================================================================
-   Modal Header (Title and Close Button)
-   ================================================================== */
+       Modal Header (Title and Close Button)
+       ================================================================== */
 .modal-header {
   display: flex;
   justify-content: space-between;
@@ -240,15 +240,14 @@ footer {
 }
 
 /* ==================================================================
-   Modal Body & Form Layout (Grid: Table-like)
-   ================================================================== */
+       Modal Body & Form Layout (Grid: Table-like)
+       ================================================================== */
 .modal-body {
   padding: 0.90rem;
   flex: 1;
   overflow-y: auto;
 }
 
-/* Use CSS Grid for a two-column layout on big screens */
 .modal-body form {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -273,8 +272,8 @@ footer {
 }
 
 /* ==================================================================
-   Modal Footer: Submit Button Aligned Right
-   ================================================================== */
+       Modal Footer: Submit Button Aligned Right
+       ================================================================== */
 .modal-footer {
   display: flex;
   justify-content: flex-end;
@@ -286,7 +285,7 @@ footer {
   background-color: #9b87f5;
   color: #fff;
   border: none;
-  padding: 0.75rem 1.0rem;
+  padding: 0.75rem 1rem;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s;
@@ -297,8 +296,8 @@ footer {
 }
 
 /* ==================================================================
-   Dark Mode Overrides
-   ================================================================== */
+       Dark Mode Overrides
+       ================================================================== */
 body[data-theme="dark"] {
   background-color: #121212;
   color: #e0e0e0;
@@ -342,9 +341,33 @@ body[data-theme="dark"] .modal-content form {
 }
 
 /* ==================================================================
-   Hide Mobile Nav & Menu by default (Desktop-First)
-   ================================================================== */
+       Hide Mobile Nav & Menu by default (Desktop-First)
+       ================================================================== */
 .mobile-nav,
 .mobile-services-menu {
   display: none;
+}
+
+/* ==================================================================
+       Typewriter Effect
+       ================================================================== */
+.typewriter {
+  overflow: hidden;
+  border-right: .15em solid #fff;
+  white-space: nowrap;
+  letter-spacing: .15em;
+  font-size: 2.5rem;
+  max-width: 100%;
+  margin: 0 auto;
+  animation: typing 4s steps(40, end) forwards, blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent; }
+  50% { border-color: #fff; }
 }
