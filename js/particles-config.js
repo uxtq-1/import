@@ -1,4 +1,6 @@
-// particles.js configuration
+/* ==================================================================
+       Particles.js Configuration for "particles-js" Container
+       ================================================================== */
 particlesJS('particles-js', {
   particles: {
     number: { value: 80, density: { enable: true, value_area: 800 } },
@@ -11,11 +13,15 @@ particlesJS('particles-js', {
   },
   interactivity: {
     detect_on: 'canvas',
-    events: { onhover: { enable: true, mode: 'repulse' }, onclick: { enable: true, mode: 'push' }, resize: true },
+    events: {
+      onhover: { enable: true, mode: 'repulse' },
+      onclick: { enable: true, mode: 'push' },
+      resize: true
+    },
     modes: { repulse: { distance: 100, duration: 0.4 } }
   },
   custom: {
-    text: "Welcome to your Future Growth with Remote Assistance", // Custom text
-    clickToContinue: "Click to Continue", // Button text
+    text: "Welcome to your Future Growth with Remote Assistance", // Custom text for potential use
+    clickToContinue: "Click to Continue" // Custom button text for potential use
   }
 });
