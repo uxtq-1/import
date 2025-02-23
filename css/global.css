@@ -85,7 +85,7 @@ header nav a {
 .hero-image {
   width: 25%; /*change it to 100% later */
   height: auto;
-  margin-top: 2rem;
+  margin-top: .5rem; /*change it to 2rem later */
   border-radius: 10px;
 }
 
