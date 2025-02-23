@@ -1,35 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  /* ===== Document Metadata & External Resources ===== */
+   <!-- ==================================================================
+       Document Metadata & External Resources
+       ================================================================== -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ops Online Support - Contact Center</title>
   
-  /* ===== CSS Stylesheets ===== */
+    <!-- ==================================================================
+       CSS Stylesheets
+       ================================================================== -->
   <link rel="stylesheet" href="css/global.css">
   <link rel="stylesheet" media="(max-width:768px)" href="css/small-screens.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" crossorigin="anonymous">
   <link rel="manifest" href="manifest.json">
   <link rel="icon" href="assets/favicon.ico">
   
-  /* ===== Inline CSS: Dark Theme & Typewriter Effect ===== */
+    <!-- ==================================================================
+       Inline CSS: Dark Theme & Typewriter Effect
+       ================================================================== --> 
   <style>
-    /* Force dark theme */
     body {
       background-color: #000;
       color: #fff;
     }
-    /* Typewriter effect for hero headline */
     .typewriter {
       overflow: hidden;
-      border-right: .15em solid #fff;
+      border-right: 0.15em solid #fff;
       white-space: nowrap;
-      letter-spacing: .15em;
+      letter-spacing: 0.15em;
       font-size: 2.5rem;
       max-width: 100%;
       margin: 0 auto;
-      animation: typing 4s steps(40, end) forwards, blink-caret .75s step-end infinite;
+      animation: typing 4s steps(40, end) forwards, blink-caret 0.75s step-end infinite;
     }
     @keyframes typing {
       from { width: 0; }
@@ -41,14 +45,20 @@
     }
   </style>
   
-  /* ===== Particles.js Library ===== */
+  <!-- ==================================================================
+        Particles.js Library
+       ================================================================== --> 
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 </head>
 <body>
-  /* ===== Particles Background Container ===== */
+   <!-- ==================================================================
+        Particles Background Container
+       ================================================================== --> 
   <div id="particles-js"></div>
   
-  /* ===== Header Section ===== */
+    <!-- ==================================================================
+        Header Section: Navigation & Toggle Buttons
+       ================================================================== --> 
   <header>
     <nav>
       <ul>
@@ -64,8 +74,9 @@
       <button id="language-toggle">EN/ES</button>
     </div>
   </header>
-  
-  /* ===== Hero Section: Typewriter Headline & Intro ===== */
+    <!-- ==================================================================
+        Hero Section: Typewriter Headline & Intro
+       ================================================================== -->
   <section class="hero">
     <h2 class="typewriter" data-en="Ops Core Framework Governance: Contact Center" data-es="Gobernanza del Núcleo Operativo: Centro de Contacto">
       Ops Core Framework Governance: Contact Center
@@ -75,13 +86,15 @@
     </p>
     <img src="assets/images/hero-image.jpg" alt="Contact Center Image" class="hero-image">
   </section>
-  
-  /* ===== Footer Section ===== */
+    <!-- ==================================================================
+       Footer Section
+       ================================================================== -->
   <footer>
     <p>&copy; 2025 Ops Online Support. All rights reserved.</p>
   </footer>
-  
-  /* ===== Floating Icons ===== */
+      <!-- ==================================================================
+      Floating Icons (Triggers for Modals)
+       ================================================================== -->
   <div class="floating-icons">
     <button class="floating-icon" data-modal="join-modal" aria-label="Join Us" tabindex="0">
       <i class="fas fa-user-plus"></i>
@@ -91,11 +104,11 @@
     </button>
   </div>
   
-  /* ===== Modals (Join & Contact) ===== */
-  <!-- (Modals remain the same as in other pages) -->
-  
-  /* ===== JavaScript Files ===== */
-  <script src="js/main.js"></script>
+  <!-- ==================================================================
+      JavaScript Files
+       ================================================================== -->
   <script src="js/particles-config.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/service-worker.js"></script>
 </body>
 </html>
