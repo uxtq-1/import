@@ -186,7 +186,7 @@ footer {
   display: none;
   position: fixed;
   inset: 0;
-  background-color: rgba(0,0,0,0.7);
+  background-color: rgba(0, 0, 0, 0); /* Fully transparent overlay */
   justify-content: center;
   align-items: center;
   z-index: 3000;
@@ -198,7 +198,7 @@ footer {
 }
 
 .modal-content {
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.9); /* 90% opaque white, see-through effect */
   border-radius: 10px;
   width: 90%;
   max-width: 800px;
