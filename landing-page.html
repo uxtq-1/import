@@ -36,7 +36,36 @@
       <button id="theme-toggle"></button>
       <button id="language-toggle"></button>
     </div>
-  </header>
+  </header>  <!-- ==================================================================
+       Inline CSS: Dark Theme & Particles Background Styling
+       ================================================================== -->
+  <style>
+    /* Enforce dark theme */
+    body {
+      background-color: #000;
+      color: #fff;
+    }
+    /* Ensure particles container spans full viewport */
+    #particles-js {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1; /* Keeps particles behind other content */
+    }
+  </style>
+
+  <!-- ==================================================================
+       Particles.js Library
+       ================================================================== -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+</head>
+<body>
+  <!-- ==================================================================
+       Particles Background Container
+       ================================================================== -->
+  <div id="particles-js"></div>
 
   <!-- ==================================================================
        Hero Section
