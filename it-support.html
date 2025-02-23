@@ -1,56 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-   <!-- /* ===== Document Metadata & External Resources ===== */ -->
+  <!-- ==================================================================
+       Document Metadata & External Resources
+       ================================================================== -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ops Online Support - IT Support</title>
   
-   <!-- /* ===== CSS Stylesheets ===== */ -->
+  <!-- ==================================================================
+       CSS Stylesheets
+       ================================================================== -->
   <link rel="stylesheet" href="css/global.css">
   <link rel="stylesheet" media="(max-width:768px)" href="css/small-screens.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" crossorigin="anonymous">
   <link rel="manifest" href="manifest.json">
   <link rel="icon" href="assets/favicon.ico">
   
-   <!-- /* ===== Inline CSS: Dark Theme & Optional Typewriter Effect ===== */ -->
+  <!-- ==================================================================
+       Inline CSS: Dark Theme & Particles Background Styling
+       ================================================================== -->
   <style>
     /* Enforce dark theme */
     body {
       background-color: #000;
       color: #fff;
     }
-    /* Uncomment below to add typewriter effect to the headline if desired */
-    /*
-    .typewriter {
-      overflow: hidden;
-      border-right: .15em solid #fff;
-      white-space: nowrap;
-      letter-spacing: .15em;
-      font-size: 2.5rem;
-      max-width: 100%;
-      margin: 0 auto;
-      animation: typing 4s steps(40, end) forwards, blink-caret .75s step-end infinite;
+    /* Ensure particles container spans full viewport */
+    #particles-js {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1; /* Keeps particles behind other content */
     }
-    @keyframes typing {
-      from { width: 0; }
-      to { width: 100%; }
-    }
-    @keyframes blink-caret {
-      from, to { border-color: transparent; }
-      50% { border-color: #fff; }
-    }
-    */
   </style>
   
-   <!-- /* ===== Particles.js Library ===== */ -->
+  <!-- ==================================================================
+       Particles.js Library
+       ================================================================== -->
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 </head>
 <body>
-   <!-- /* ===== Particles Background Container ===== */ -->
+  <!-- ==================================================================
+       Particles Background Container
+       ================================================================== -->
   <div id="particles-js"></div>
   
-   <!-- /* ===== Header Section ===== */ -->
+  <!-- ==================================================================
+       Header Section: Navigation & Toggle Buttons
+       ================================================================== -->
   <header>
     <nav>
       <ul>
@@ -67,7 +67,9 @@
     </div>
   </header>
   
-   <!-- /* ===== Hero Section ===== */ -->
+  <!-- ==================================================================
+       Hero Section: IT Support Content
+       ================================================================== -->
   <section class="hero">
     <h2 data-en="IT Support" data-es="Soporte IT">IT Support</h2>
     <p data-en="Ensure seamless IT operations with our comprehensive support services." data-es="Garantiza operaciones de IT sin problemas con nuestros servicios integrales.">
@@ -76,12 +78,16 @@
     <img src="assets/images/hero-image.jpg" alt="IT Support Image" class="hero-image">
   </section>
   
-   <!-- /* ===== Footer Section ===== */ -->
+  <!-- ==================================================================
+       Footer Section
+       ================================================================== -->
   <footer>
     <p>&copy; 2025 Ops Online Support. All rights reserved.</p>
   </footer>
   
-   <!-- /* ===== Floating Icons ===== */ -->
+  <!-- ==================================================================
+       Floating Icons (Triggers for Modals)
+       ================================================================== -->
   <div class="floating-icons">
     <button class="floating-icon" data-modal="join-modal" aria-label="Join Us" tabindex="0">
       <i class="fas fa-user-plus"></i>
@@ -91,11 +97,17 @@
     </button>
   </div>
   
-   <!-- /* ===== Modals (Join & Contact) ===== */ -->
-   <!-- (Modal HTML remains unchanged) -->
+  <!-- ==================================================================
+       Modals: Join & Contact
+       ================================================================== -->
+  <!-- (Modal HTML remains unchanged from your existing files) -->
   
-   <!-- /* ===== JavaScript Files ===== */ -->
-  <script src="js/main.js"></script>
+  <!-- ==================================================================
+       JavaScript: Main Functionality & Particles Initialization
+       ================================================================== -->
+  <!-- Load particles-config.js first so the background is set up -->
   <script src="js/particles-config.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/service-worker.js"></script>
 </body>
 </html>
