@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>OPS Solutions Services</title>
     <!-- ==================================================================
-       Global CSS (Desktop-First)
+       CSS Stylesheets
        ================================================================== -->
     <link rel="stylesheet" href="css/global.css">
   <!-- Additional overrides for small screens -->
@@ -22,6 +22,37 @@
 </head>
 <body>
   <!-- ==================================================================
+       Inline CSS: Dark Theme & Particles Background Styling
+       ================================================================== -->
+  <style>
+    /* Enforce dark theme */
+    body {
+      background-color: #000;
+      color: #fff;
+    }
+    /* Ensure particles container spans full viewport */
+    #particles-js {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1; /* Keeps particles behind other content */
+    }
+  </style>
+
+  <!-- ==================================================================
+       Particles.js Library
+       ================================================================== -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+</head>
+<body>
+  <!-- ==================================================================
+       Particles Background Container
+       ================================================================== -->
+  <div id="particles-js"></div>
+
+ <!-- ==================================================================
        Header Section: Navigation & Toggle Buttons (Desktop Only)
        ================================================================== -->
   <header>
@@ -40,12 +71,19 @@
     </div>
   </header>
 
+ <!-- ==================================================================
+       Hero Section: Professionals Content
+       ================================================================== -->
   <section class="hero">
     <h2 data-en="Professionals" data-es="Profesionales">Professionals</h2>
     <p data-en="Get expert assistance tailored to your needs." data-es="Recibe asistencia experta adaptada a tus necesidades.">
       Get expert assistance tailored to your needs.
     </p>
     <img src="assets/images/hero-image.jpg" alt="Professionals Image" class="hero-image">
+
+<!-- ==================================================================
+       Footer Section
+       ================================================================== -->
   </section>
     <footer>
     <p>&copy; 2025 OPS Solutions Services. All rights reserved.</p>
@@ -73,8 +111,16 @@
         <button class="close-modal" data-close aria-label="Close">&times;</button>
       </div>
   <!-- ==================================================================
-       Modal Body: Form with Grid (Table-like) Layout
+       Join Modal
        ================================================================== -->
+  <div id="join-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="joinModalTitle">
+    <div class="modal-content">
+      <!-- Modal Header: Title & Close Button -->
+      <div class="modal-header">
+        <h3 id="joinModalTitle" data-en="Join Us" data-es="Únete a Nosotros">Join Us</h3>
+        <button class="close-modal" data-close aria-label="Close">&times;</button>
+      </div>
+      <!-- Modal Body: Form with Grid (Table-like) Layout -->
       <div class="modal-body">
         <form id="join-form">
           <!-- Row 1 -->
@@ -123,16 +169,14 @@
           </div>
         </form>
       </div>
-        <!-- ==================================================================
-       Modal Footer: Submit Button
-       ================================================================== -->
-     <div class="modal-footer">
+      <!-- Modal Footer: Submit Button -->
+      <div class="modal-footer">
         <button type="submit" form="join-form" class="submit-button" data-en="Submit" data-es="Enviar">Submit</button>
       </div>
     </div>
   </div>
-
-  <!-- ==================================================================
+  
+ <!-- ==================================================================
        Contact Modal
        ================================================================== -->
   <div id="contact-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="contactModalTitle">
@@ -180,15 +224,17 @@
           </div>
         </form>
       </div>
-      <!-- Modal Footer: Submit Button -->
+        <!-- ==================================================================
+       Modal Footer: Submit Button
+       ================================================================== -->
+      
       <div class="modal-footer">
         <button type="submit" form="contact-form" class="submit-button" data-en="Send" data-es="Enviar">Send</button>
       </div>
     </div>
   </div>
-
   <!-- ==================================================================
-       Mobile Bottom Navigation & Services Menu (Small Screens)
+       Hidden Mobile Bottom Navigation & Services Menu (Small Screens)
        ================================================================== -->
   <!-- Mobile Bottom Navigation Bar -->
   <nav class="mobile-nav">
@@ -200,6 +246,15 @@
       <i class="fas fa-bars"></i>
       <span>Services</span>
     </button>
+    <!-- Language Toggle -->
+    <button class="mobile-nav-item" id="language-toggle">EN/ES</button>
+    <!-- Theme Toggle -->
+    <button class="mobile-nav-item" id="theme-toggle">Dark/Light</button>
+    <a href="#" class="mobile-nav-item">
+      <i class="fas fa-comment-alt"></i>
+      <span>Chat</span>
+    </a>
+  </nav>
       <!-- ==================================================================
          Language Toggle 
        ================================================================== -->
@@ -229,6 +284,12 @@
   <!-- ==================================================================
        JavaScript: Main Functionality & Mobile Menu Toggle
        ================================================================== -->
+  <!-- ==================================================================
+       JavaScript: Main Functionality & Particles Initialization
+       ================================================================== -->
+  <!-- Load particles-config.js first so the background is set up -->
+  <script src="js/particles-config.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/service-worker.js"></script>
 </body>
 </html>
