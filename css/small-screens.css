@@ -97,9 +97,10 @@
   .modal-body form {
     grid-template-columns: 1fr;
    }
-
- /* Mobile Services Menu - Pops up vertically above the mobile nav */
-  .mobile-services-menu {
+/* =========================================================
+      Mobile Services Menu - Pops up vertically above the mobile nav
+       ========================================================= */
+   .mobile-services-menu {
     position: fixed;
     bottom: calc(0.5rem + 50px); /* Adjust so it sits above the mobile nav */
     left: 15%;
@@ -112,27 +113,24 @@
     transition: transform 0.3s ease;
     transform: translateY(100%);
   }
-  .mobile-services-menu.active {
-    display: block;
-    transform: translateY(0);
-  }
-  .mobile-services-menu ul {
-    list-style: none;
-    padding: 1rem;
-    margin: 0;
-  }
-  .mobile-services-menu li {
-    padding: 0.5rem 0;
-    border-bottom: 1px solid #eee;
-  }
-  .mobile-services-menu li:last-child {
-    border-bottom: none;
-  }
-  .mobile-services-menu a {
-    text-decoration: none;
-    color: #333;
-    font-size: 1rem;
-  }
+  /* Active state: Display Mobile Services Menu when toggled */
+.mobile-services-menu.active {
+  display: block;
+  transform: translateY(0);
+}
+.mobile-services-menu ul {
+  list-style: none;
+  padding: 1rem;
+  margin: 0;
+}
+.mobile-services-menu li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #eee;
+}
+.mobile-services-menu a {
+  text-decoration: none;
+  color: #333;
+  font-size: 1rem;
 }
 /* =========================================================
        For screens ≥ 769px, hide mobile nav (redundant but safe)
