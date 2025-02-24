@@ -1,130 +1,108 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', () => {
+  /* -----------------------------
+     1) Language Toggle
+  ----------------------------- */
+  let currentLanguage = localStorage.getItem('language') || 'en';
 
-  /* ==================================================================
-       1) Theme Toggle
-       ================================================================== */
-  const themeToggleButton = document.getElementById('theme-toggle');
-  const bodyElement = document.body;
-  const savedTheme = localStorage.getItem('theme') || 'light';
+  // Desktop & Mobile Toggle Buttons
+  const langToggleDesktop = document.getElementById('language-toggle-desktop');
+  const langToggleMobile = document.getElementById('language-toggle-mobile');
 
-  // Initialize theme
-  bodyElement.setAttribute('data-theme', savedTheme);
-  if (themeToggleButton) {
-    themeToggleButton.textContent = savedTheme === 'light' ? 'Dark' : 'Light';
-
-    themeToggleButton.addEventListener('click', function() {
-      const currentTheme = bodyElement.getAttribute('data-theme');
-      if (currentTheme === 'light') {
-        bodyElement.setAttribute('data-theme', 'dark');
-        themeToggleButton.textContent = 'Light';
-        localStorage.setItem('theme', 'dark');
-      } else {
-        bodyElement.setAttribute('data-theme', 'light');
-        themeToggleButton.textContent = 'Dark';
-        localStorage.setItem('theme', 'light');
-      }
+  // Function to update text
+  function updateLanguage(lang) {
+    const elements = document.querySelectorAll('[data-en]');
+    elements.forEach(el => {
+      el.textContent = (lang === 'en')
+        ? el.getAttribute('data-en')
+        : el.getAttribute('data-es');
     });
   }
 
-  /* ==================================================================
-       2) Language Toggle
-       ================================================================== */
-  const languageToggleMobile = document.getElementById('language-toggle-mobile');
-  const languageToggleButton = document.getElementById('language-toggle');
-  let currentLanguage = localStorage.getItem('language') || 'en'; // Default to English
-
-  // Set the language attribute on the body
+  // Apply initial language
   document.body.setAttribute('lang', currentLanguage);
+  updateLanguage(currentLanguage);
+  if (langToggleDesktop) langToggleDesktop.textContent = currentLanguage === 'en' ? 'ES' : 'EN';
+  if (langToggleMobile) langToggleMobile.querySelector('span').textContent = currentLanguage === 'en' ? 'ES' : 'EN';
 
-  // Function to update text based on current language
-  function updateLanguage() {
-    const translationElements = document.querySelectorAll('[data-en]');
-    translationElements.forEach((element) => {
-      element.textContent = (currentLanguage === 'en')
-        ? element.getAttribute('data-en')
-        : element.getAttribute('data-es');
+  // Toggle function
+  function toggleLanguage() {
+    currentLanguage = (currentLanguage === 'en') ? 'es' : 'en';
+    localStorage.setItem('language', currentLanguage);
+    updateLanguage(currentLanguage);
+    document.body.setAttribute('lang', currentLanguage);
+
+    // Update button labels
+    if (langToggleDesktop) langToggleDesktop.textContent = currentLanguage === 'en' ? 'ES' : 'EN';
+    if (langToggleMobile) langToggleMobile.querySelector('span').textContent = currentLanguage === 'en' ? 'ES' : 'EN';
+  }
+
+  // Event Listeners for toggles
+  if (langToggleDesktop) {
+    langToggleDesktop.addEventListener('click', toggleLanguage);
+  }
+  if (langToggleMobile) {
+    langToggleMobile.addEventListener('click', toggleLanguage);
+  }
+
+  /* -----------------------------
+     2) Main Menu Slide-In/Out
+  ----------------------------- */
+  const menuOpenBtn = document.getElementById('menu-open');
+  const menuCloseBtn = document.getElementById('menu-close');
+  const rightSideMenu = document.getElementById('rightSideMenu');
+
+  if (menuOpenBtn && menuCloseBtn && rightSideMenu) {
+    menuOpenBtn.addEventListener('click', () => {
+      rightSideMenu.classList.add('open');
+    });
+    menuCloseBtn.addEventListener('click', () => {
+      rightSideMenu.classList.remove('open');
+      // Also close services sub-menu if open
+      servicesSubMenu.classList.remove('open');
     });
   }
 
-  // Initialize language
-  updateLanguage();
+  /* -----------------------------
+     3) Services Sub-Menu Upward
+  ----------------------------- */
+  const servicesTrigger = document.querySelector('.services-trigger button');
+  const servicesSubMenu = document.getElementById('servicesSubMenu');
 
-  // Set the language toggle button's text
-  if (languageToggleButton) {
-    languageToggleButton.textContent = (currentLanguage === 'en') ? 'ES' : 'EN';
-  }
-  if (languageToggleMobile) {
-    languageToggleMobile.textContent = (currentLanguage === 'en') ? 'ES' : 'EN';
+  if (servicesTrigger && servicesSubMenu) {
+    servicesTrigger.addEventListener('click', (e) => {
+      // Toggle the sub-menu
+      servicesSubMenu.classList.toggle('open');
+      e.stopPropagation(); // prevent clicks from closing it immediately
+    });
   }
 
-  // Add event listener to language toggle button
-  languageToggleButton && languageToggleButton.addEventListener('click', function() {
-    currentLanguage = (currentLanguage === 'en') ? 'es' : 'en'; // Toggle between English and Spanish
-    localStorage.setItem('language', currentLanguage); // Store language preference
-    document.body.setAttribute('lang', currentLanguage); // Update language attribute
-    updateLanguage(); // Update the text content
-    if (languageToggleButton) {
-      languageToggleButton.textContent = (currentLanguage === 'en') ? 'ES' : 'EN'; // Change button text
+  // Close sub-menu when user taps outside or selects an item
+  document.addEventListener('click', (evt) => {
+    const isClickInsideSubMenu = servicesSubMenu.contains(evt.target);
+    const isClickOnTrigger = servicesTrigger.contains(evt.target);
+    if (!isClickInsideSubMenu && !isClickOnTrigger) {
+      servicesSubMenu.classList.remove('open');
     }
-    if (languageToggleMobile) {
-      languageToggleMobile.textContent = (currentLanguage === 'en') ? 'ES' : 'EN'; // Change button text for mobile
-    }
   });
 
-});
-  /* ==================================================================
-       3) Modal Functionality
-       ================================================================== */
-  const modalOverlays = document.querySelectorAll('.modal-overlay');
-  const closeModalButtons = document.querySelectorAll('[data-close]');
-  const floatingIcons = document.querySelectorAll('.floating-icon');
-
-  // Open modals
-  floatingIcons.forEach((icon) => {
-    icon.addEventListener('click', function() {
-      const modalId = icon.getAttribute('data-modal');
-      const modalElement = document.getElementById(modalId);
-      if (modalElement) {
-        modalElement.classList.add('active');
-        modalElement.focus();
-      }
-    });
-  });
-
-  // Close modals
-  closeModalButtons.forEach((btn) => {
-    btn.addEventListener('click', function() {
-      const parentOverlay = btn.closest('.modal-overlay');
-      if (parentOverlay) {
-        parentOverlay.classList.remove('active');
-      }
-    });
-  });
-
-  // Close modal on clicking outside or pressing ESC
-  modalOverlays.forEach((overlay) => {
-    overlay.addEventListener('click', function(e) {
-      if (e.target === overlay) {
-        overlay.classList.remove('active');
-      }
-    });
-    overlay.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape') {
-        overlay.classList.remove('active');
-      }
-    });
-  });
-
-  /* ==================================================================
-       4) Mobile Services Toggle
-       ================================================================== */
-  const servicesToggle = document.getElementById('services-toggle');
-  const mobileServicesMenu = document.getElementById('mobile-services-menu');
-
-  if (servicesToggle && mobileServicesMenu) {
-    servicesToggle.addEventListener('click', function() {
-      mobileServicesMenu.classList.toggle('active');  // Toggle the visibility of the services menu
+  /* (Optional) If you have "Join Us" or "Contact Us" forms,
+     you can add a simple "Thank You" alert on submit:
+  */
+  const joinForm = document.getElementById('join-form');
+  if (joinForm) {
+    joinForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert('Thank you! We have received your submission.');
+      joinForm.reset();
     });
   }
 
+  const contactForm = document.getElementById('contact-form');
+  if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert('Thank you! We will be in touch soon.');
+      contactForm.reset();
+    });
+  }
 });
