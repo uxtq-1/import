@@ -30,32 +30,48 @@ document.addEventListener('DOMContentLoaded', function() {
        2) Language Toggle
        ================================================================== */
   const languageToggleMobile = document.getElementById('language-toggle-mobile');
-  let currentLanguage = localStorage.getItem('language') || 'en';
+  const languageToggleButton = document.getElementById('language-toggle');
+  let currentLanguage = localStorage.getItem('language') || 'en'; // Default to English
 
+  // Set the language attribute on the body
   document.body.setAttribute('lang', currentLanguage);
-  if (languageToggleMobile) {
-    languageToggleMobile.textContent = (currentLanguage === 'en') ? 'ES' : 'EN';
 
-    function updateLanguage() {
-      const translationElements = document.querySelectorAll('[data-en]');
-      translationElements.forEach((element) => {
-        element.textContent = (currentLanguage === 'en')
-          ? element.getAttribute('data-en')
-          : element.getAttribute('data-es');
-      });
-    }
-
-    updateLanguage();
-
-    languageToggleMobile.addEventListener('click', function() {
-      currentLanguage = (currentLanguage === 'en') ? 'es' : 'en';
-      languageToggleMobile.textContent = (currentLanguage === 'en') ? 'ES' : 'EN';
-      document.body.setAttribute('lang', currentLanguage);
-      updateLanguage();
-      localStorage.setItem('language', currentLanguage);
+  // Function to update text based on current language
+  function updateLanguage() {
+    const translationElements = document.querySelectorAll('[data-en]');
+    translationElements.forEach((element) => {
+      element.textContent = (currentLanguage === 'en')
+        ? element.getAttribute('data-en')
+        : element.getAttribute('data-es');
     });
   }
 
+  // Initialize language
+  updateLanguage();
+
+  // Set the language toggle button's text
+  if (languageToggleButton) {
+    languageToggleButton.textContent = (currentLanguage === 'en') ? 'ES' : 'EN';
+  }
+  if (languageToggleMobile) {
+    languageToggleMobile.textContent = (currentLanguage === 'en') ? 'ES' : 'EN';
+  }
+
+  // Add event listener to language toggle button
+  languageToggleButton && languageToggleButton.addEventListener('click', function() {
+    currentLanguage = (currentLanguage === 'en') ? 'es' : 'en'; // Toggle between English and Spanish
+    localStorage.setItem('language', currentLanguage); // Store language preference
+    document.body.setAttribute('lang', currentLanguage); // Update language attribute
+    updateLanguage(); // Update the text content
+    if (languageToggleButton) {
+      languageToggleButton.textContent = (currentLanguage === 'en') ? 'ES' : 'EN'; // Change button text
+    }
+    if (languageToggleMobile) {
+      languageToggleMobile.textContent = (currentLanguage === 'en') ? 'ES' : 'EN'; // Change button text for mobile
+    }
+  });
+
+});
   /* ==================================================================
        3) Modal Functionality
        ================================================================== */
