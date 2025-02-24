@@ -341,14 +341,6 @@ body[data-theme="dark"] .modal-content form {
 }
 
 /* ==================================================================
-       Hide Mobile Nav & Menu by default (Desktop-First)
-       ================================================================== */
-.mobile-nav,
-.mobile-services-menu {
-  display: none;
-}
-
-/* ==================================================================
        Typewriter Effect
        ================================================================== */
 .typewriter {
@@ -370,4 +362,11 @@ body[data-theme="dark"] .modal-content form {
 @keyframes blink-caret {
   from, to { border-color: transparent; }
   50% { border-color: #fff; }
+}
+/* ==================================================================
+   Hide Mobile Nav & Menu by default (Desktop-First)
+   ================================================================== */
+.mobile-nav,
+.mobile-services-menu {
+  display: none;
 }
