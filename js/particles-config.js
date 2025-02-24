@@ -1,19 +1,7 @@
-/*****************************************************
- * particles-config.js
- * Particles.js configuration with pulsing animation
- * and shades of purple.
- *****************************************************/
-
 particlesJS('particles-js', {
   "particles": {
-    "number": {
-      "value": 60,
-      "density": { "enable": true, "value_area": 800 }
-    },
-    "color": {
-      // Purple shade array (customize as you wish)
-      "value": ["#7e69ab", "#4c3d7d", "#b09bd9"]
-    },
+    "number": { "value": 60, "density": { "enable": true, "value_area": 800 } },
+    "color": { "value": ["#7e69ab", "#4c3d7d", "#b09bd9"] },
     "shape": { "type": "circle" },
     "opacity": {
       "value": 0.5,
