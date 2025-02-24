@@ -3,40 +3,39 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Ops Online Support - Sample Page</title>
+  <title>Ops Online Support - With Join & Contact</title>
 
-  <!-- Font Awesome for arrow/icons -->
+  <!-- Font Awesome for icons/arrows -->
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
     crossorigin="anonymous"
   />
-
-  <!-- Main CSS (contains gradient, layouts, etc.) -->
+  
+  <!-- Main CSS (Global) -->
   <link rel="stylesheet" href="css/global.css" />
-
-  <!-- Particles.js library -->
+  
+  <!-- Particles.js Library -->
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 </head>
 <body>
-
   <!-- Particles Background -->
   <div id="particles-js"></div>
-
+  
   <!-- =========================
        Desktop Header (Optional)
        ========================= -->
   <header class="desktop-header">
     <nav>
       <ul>
-        <li><a href="index.html" data-en="Home" data-es="Inicio">Home</a></li>
+        <li><a href="landing-page.html" data-en="Home" data-es="Inicio">Home</a></li>
         <li><a href="business-operations.html" data-en="Business Operations" data-es="Operaciones">Business Operations</a></li>
         <li><a href="contact-center.html" data-en="Contact Center" data-es="Contacto">Contact Center</a></li>
         <li><a href="it-support.html" data-en="IT Support" data-es="Soporte IT">IT Support</a></li>
         <li><a href="professionals.html" data-en="Professionals" data-es="Profesionales">Professionals</a></li>
       </ul>
     </nav>
-    <!-- Language Toggle (Desktop) -->
+    <!-- Desktop Language Toggle -->
     <button id="language-toggle-desktop" class="lang-toggle">EN</button>
   </header>
 
@@ -48,31 +47,32 @@
       <h2 data-en="Welcome to Ops Online Support" data-es="Bienvenido a Ops Online Support">
         Welcome to Ops Online Support
       </h2>
-      <p data-en="Empowering remote solutions with cutting-edge strategies."
+      <p data-en="Empowering remote solutions with cutting-edge strategies." 
          data-es="Soluciones remotas con estrategias innovadoras.">
          Empowering remote solutions with cutting-edge strategies.
       </p>
     </section>
-    <!-- Your additional page-specific content goes here -->
+    
+    <!-- Additional content can go here -->
   </main>
 
   <!-- =========================
        Bottom Nav (Mobile)
        ========================= -->
   <nav id="mobileNav">
-    <!-- Left arrow (<) is the main menu trigger -->
+    <!-- Open side menu arrow (<) -->
     <button class="mobile-nav-item" id="menu-open" aria-label="Open Menu">
-      <i class="fa-solid fa-arrow-left"></i> <!-- Or a hamburger icon if you prefer -->
+      <i class="fa-solid fa-arrow-left"></i>
       <span data-en="Menu" data-es="Menú">Menu</span>
     </button>
 
-    <!-- Language Toggle (Mobile) -->
+    <!-- Mobile Language Toggle -->
     <button class="mobile-nav-item lang-toggle" id="language-toggle-mobile" aria-label="Toggle Language">
       <i class="fa-solid fa-language"></i>
       <span>EN</span>
     </button>
   </nav>
-
+  
   <!-- =========================
        Right-Side Main Menu
        ========================= -->
@@ -82,7 +82,7 @@
     </button>
 
     <ul class="side-menu-list">
-      <li><a href="index.html" data-en="Home" data-es="Inicio">Home</a></li>
+      <li><a href="landing-page.html" data-en="Home" data-es="Inicio">Home</a></li>
       <li><a href="business-operations.html" data-en="Business Operations" data-es="Operaciones">Business Operations</a></li>
       <li><a href="contact-center.html" data-en="Contact Center" data-es="Contacto">Contact Center</a></li>
       <li><a href="it-support.html" data-en="IT Support" data-es="Soporte IT">IT Support</a></li>
@@ -90,7 +90,7 @@
       <!-- Services Sub-Menu Trigger -->
       <li class="services-trigger">
         <button data-en="Services" data-es="Servicios">
-          <i class="fa-solid fa-bars"></i> <!-- hamburger icon -->
+          <i class="fa-solid fa-bars"></i>
           <span data-en="Services" data-es="Servicios">Services</span>
         </button>
       </li>
@@ -106,8 +106,8 @@
       </ul>
     </div>
   </div>
-  
-<!-- =========================
+
+  <!-- =========================
        Floating Icons
        ========================= -->
   <div class="floating-icons">
@@ -120,6 +120,7 @@
       <i class="fa-solid fa-envelope-open-text"></i>
     </button>
   </div>
+
   <!-- =========================
        Join Us Modal
        ========================= -->
@@ -181,6 +182,7 @@
       </div>
     </div>
   </div>
+
   <!-- =========================
        Contact Us Modal
        ========================= -->
@@ -226,17 +228,18 @@
           </div>
         </form>
       </div>
-       <!-- Modal Footer -->
+      <!-- Modal Footer -->
       <div class="modal-footer">
         <button type="submit" form="contact-form" class="submit-button" data-en="Send" data-es="Enviar">Send</button>
       </div>
     </div>
   </div>
-  <!-- =========================
-       JavaScript Files
-       ========================= -->
-  <script src="js/particles-config.js"></script> <!-- Particles config with pulsing -->
-  <script src="js/main.js"></script>           <!-- Main script: handles language, menu transitions, etc. -->
 
+  <!-- =========================
+       JS Scripts
+       ========================= -->
+  <script src="js/main.js"></script>
+  <script src="js/language-toggle.js"></script>
+  <script src="js/particles-config.js"></script>
 </body>
 </html>
