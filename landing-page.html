@@ -16,26 +16,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" crossorigin="anonymous">
   <link rel="manifest" href="manifest.json">
   <link rel="icon" href="assets/favicon.ico">
-</head>
+
   <!-- ==================================================================
-       Header Section: Navigation & Toggle Buttons (Desktop Only)
-       ================================================================== -->
-  <header>
-    <nav>
-      <ul>
-        <li><a href="index.html" data-en="Home" data-es="Inicio">Home</a></li>
-        <li><a href="business-operations.html" data-en="Business Operations" data-es="Operaciones Empresariales">Business Operations</a></li>
-        <li><a href="contact-center.html" data-en="Contact Center" data-es="Centro de Contacto">Contact Center</a></li>
-        <li><a href="it-support.html" data-en="IT Support" data-es="Soporte IT">IT Support</a></li>
-        <li><a href="professionals.html" data-en="Professionals" data-es="Profesionales">Professionals</a></li>
-      </ul>
-    </nav>
-    <div class="toggle-container">
-      <button id="theme-toggle"></button>
-      <button id="language-toggle"></button>
-    </div>
-  </header>
-<!-- ==================================================================
        Inline CSS: Dark Theme & Particles Background Styling
        ================================================================== -->
   <style>
@@ -65,6 +47,26 @@
        Particles Background Container
        ================================================================== -->
   <div id="particles-js"></div>
+  
+  <!-- ==================================================================
+       Header Section: Navigation & Toggle Buttons (Desktop Only)
+       ================================================================== -->
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html" data-en="Home" data-es="Inicio">Home</a></li>
+        <li><a href="business-operations.html" data-en="Business Operations" data-es="Operaciones Empresariales">Business Operations</a></li>
+        <li><a href="contact-center.html" data-en="Contact Center" data-es="Centro de Contacto">Contact Center</a></li>
+        <li><a href="it-support.html" data-en="IT Support" data-es="Soporte IT">IT Support</a></li>
+        <li><a href="professionals.html" data-en="Professionals" data-es="Profesionales">Professionals</a></li>
+      </ul>
+    </nav>
+    <div class="toggle-container">
+      <button id="theme-toggle"></button>
+      <button id="language-toggle"></button>
+    </div>
+  </header>
+
   <!-- ==================================================================
        Hero Section
        ================================================================== -->
@@ -75,7 +77,8 @@
     <p data-en="Empowering remote solutions with cutting-edge strategies." data-es="Impulsando soluciones remotas con estrategias innovadoras.">
       Empowering remote solutions with cutting-edge strategies.
     </p>
-   <!-- */ <img src="assets/images/hero-image.jpg" alt="Hero Image" class="hero-image"> */-->
+    <!-- Uncomment the following line if you wish to display a hero image -->
+    <!-- <img src="assets/images/hero-image.jpg" alt="Hero Image" class="hero-image"> -->
   </section>
 
   <!-- ==================================================================
@@ -136,15 +139,12 @@
        ================================================================== -->
   <div id="join-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="joinModalTitle">
     <div class="modal-content">
-      <!-- Modal Header: Title & Close Button -->
       <div class="modal-header">
         <h3 id="joinModalTitle" data-en="Join Us" data-es="Únete a Nosotros">Join Us</h3>
         <button class="close-modal" data-close aria-label="Close">&times;</button>
       </div>
-      <!-- Modal Body: Form with Grid (Table-like) Layout -->
       <div class="modal-body">
         <form id="join-form">
-          <!-- Row 1 -->
           <div class="form-row">
             <div class="form-cell">
               <label for="join-name" data-en="Name" data-es="Nombre">Name</label>
@@ -155,7 +155,6 @@
               <input type="email" id="join-email" placeholder="Enter your email" required>
             </div>
           </div>
-          <!-- Row 2 -->
           <div class="form-row">
             <div class="form-cell">
               <label for="join-contact" data-en="Contact Number" data-es="Número de Contacto">Contact Number</label>
@@ -166,7 +165,6 @@
               <input type="date" id="join-date" required>
             </div>
           </div>
-          <!-- Row 3 -->
           <div class="form-row">
             <div class="form-cell">
               <label for="join-time" data-en="Time" data-es="Hora">Time</label>
@@ -177,7 +175,6 @@
               <input type="file" id="join-resume" accept=".pdf,.doc,.docx" required>
             </div>
           </div>
-          <!-- Row 4 -->
           <div class="form-row">
             <div class="form-cell">
               <label for="join-cover" data-en="Upload Your Cover Letter" data-es="Sube tu Carta de Presentación">Upload Your Cover Letter</label>
@@ -190,7 +187,6 @@
           </div>
         </form>
       </div>
-      <!-- Modal Footer: Submit Button -->
       <div class="modal-footer">
         <button type="submit" form="join-form" class="submit-button" data-en="Submit" data-es="Enviar">Submit</button>
       </div>
@@ -202,15 +198,12 @@
        ================================================================== -->
   <div id="contact-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="contactModalTitle">
     <div class="modal-content">
-      <!-- Modal Header: Title & Close Button -->
       <div class="modal-header">
         <h3 id="contactModalTitle" data-en="Contact Us" data-es="Contáctenos">Contact Us</h3>
         <button class="close-modal" data-close aria-label="Close">&times;</button>
       </div>
-      <!-- Modal Body: Form with Grid (Table-like) Layout -->
       <div class="modal-body">
         <form id="contact-form">
-          <!-- Row 1 -->
           <div class="form-row">
             <div class="form-cell">
               <label for="contact-name" data-en="Name" data-es="Nombre">Name</label>
@@ -221,7 +214,6 @@
               <input type="email" id="contact-email" placeholder="Enter your email" required>
             </div>
           </div>
-          <!-- Row 2 -->
           <div class="form-row">
             <div class="form-cell">
               <label for="contact-number" data-en="Contact Number" data-es="Número de Contacto">Contact Number</label>
@@ -232,7 +224,6 @@
               <input type="date" id="contact-date" required>
             </div>
           </div>
-          <!-- Row 3 -->
           <div class="form-row">
             <div class="form-cell">
               <label for="contact-time" data-en="Preferred Time" data-es="Hora Preferida">Preferred Time</label>
@@ -245,7 +236,6 @@
           </div>
         </form>
       </div>
-      <!-- Modal Footer: Submit Button -->
       <div class="modal-footer">
         <button type="submit" form="contact-form" class="submit-button" data-en="Send" data-es="Enviar">Send</button>
       </div>
@@ -258,7 +248,7 @@
   <!-- Mobile Bottom Navigation Bar -->
   <nav id="mobileNav" role="navigation" aria-label="Mobile Navigation">
     <!-- Home Button -->
-    <a href="index.html" class="mobile-nav-item" aria-label="Home">
+    <a href="landing-page.html" class="mobile-nav-item" aria-label="Home">
       <i class="fas fa-home"></i>
       <span>Home</span>
     </a>
@@ -283,10 +273,7 @@
       <span>Chat</span>
     </button>
   </nav>
-
-  <!-- ==================================================================
-       Hidden Mobile Services Menu
-       ================================================================== -->
+  <!-- Hidden Mobile Services Menu -->
   <div class="mobile-services-menu" id="mobile-services-menu">
     <ul>
       <li><a href="business-operations.html">Business Operations</a></li>
@@ -297,23 +284,23 @@
   </div>
 
   <!-- ==================================================================
-     JavaScript: Main Functionality, Particles Initialization & Mobile Menu Toggle
-     ================================================================== -->
-<script src="js/particles-config.js"></script>
-<script src="js/main.js"></script>
-<script>
-  // Service Worker Registration (must be served over HTTPS or localhost)
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-      navigator.serviceWorker.register('/js/service-worker.js')
-        .then(registration => {
-          console.log('Service Worker registered with scope:', registration.scope);
-        })
-        .catch(err => {
-          console.error('Service Worker registration failed:', err);
-        });
-    });
-  }
-</script>
+       JavaScript: Main Functionality, Particles Initialization & Mobile Menu Toggle
+       ================================================================== -->
+  <script src="js/particles-config.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    // Service Worker Registration (must be served over HTTPS or localhost)
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/js/service-worker.js')
+          .then(registration => {
+            console.log('Service Worker registered with scope:', registration.scope);
+          })
+          .catch(err => {
+            console.error('Service Worker registration failed:', err);
+          });
+      });
+    }
+  </script>
 </body>
 </html>
