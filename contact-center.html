@@ -1,159 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Ops Online Support - Contact Center</title>
-
-  <!-- Font Awesome -->
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-    crossorigin="anonymous"
-  />
-
-  <!-- Global CSS -->
-  <link rel="stylesheet" href="css/global.css" />
-
-  <!-- Particles.js Library -->
-  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <meta charset="UTF-8">
+  <title>Business Operations</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- LINK TO SHARED CSS -->
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <div id="particles-js"></div>
-  
-  <!-- Desktop Header -->
-  <header class="desktop-header">
-    <nav>
-      <ul>
-        <li><a href="landing-page.html" data-en="Home" data-es="Inicio">Home</a></li>
-        <li><a href="business-operations.html" data-en="Business Operations" data-es="Operaciones">Business Operations</a></li>
-        <li><a href="contact-center.html" data-en="Contact Center" data-es="Contacto">Contact Center</a></li>
-        <li><a href="it-support.html" data-en="IT Support" data-es="Soporte IT">IT Support</a></li>
-        <li><a href="professionals.html" data-en="Professionals" data-es="Profesionales">Professionals</a></li>
-      </ul>
-    </nav>
-    <button id="language-toggle-desktop" class="lang-toggle">EN</button>
-  </header>
 
-  <main>
-    <section class="hero">
-      <h2 data-en="Contact Center" data-es="Centro de Contacto">Contact Center</h2>
-      <p data-en="Enhance customer interactions with our contact solutions."
-         data-es="Mejora la interacción con tus clientes con nuestras soluciones.">
-         Enhance customer interactions with our contact solutions.
-      </p>
-    </section>
-  </main>
+  <!-- FLOATING ICONS (same as index.html) -->
+  <div class="floating-icons">
+    <div class="floating-icon contact-us" id="contactUsBtn">Contact Us</div>
+    <div class="floating-icon join-us" id="joinUsBtn">Join Us</div>
+  </div>
 
-  <!-- Bottom Nav (Mobile) -->
-  <nav id="mobileNav">
-    <button class="mobile-nav-item" id="menu-open" aria-label="Open Menu">
-      <i class="fa-solid fa-arrow-left"></i>
-      <span data-en="Menu" data-es="Menú">Menu</span>
-    </button>
-    <button class="mobile-nav-item lang-toggle" id="language-toggle-mobile" aria-label="Toggle Language">
-      <i class="fa-solid fa-language"></i>
-      <span>EN</span>
-    </button>
+  <!-- MOBILE NAV TRIGGER -->
+  <div class="mobile-nav-trigger" id="mobileNavTrigger">
+    <span class="arrow">&lt;</span>
+  </div>
+
+  <!-- MOBILE NAV SLIDER -->
+  <nav class="mobile-nav" id="mobileNav">
+    <span class="close-btn" id="closeNavBtn">&times;</span>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li>
+        <a href="#" class="submenu-toggle" id="servicesToggle">Services</a>
+        <div class="mobile-submenu" id="servicesSubmenu">
+          <ul>
+            <li><a href="business-operations.html">Business Operations</a></li>
+            <li><a href="contact-center.html">Contact Center</a></li>
+            <li><a href="it-support.html">IT Support</a></li>
+            <li><a href="professionals.html">Professionals</a></li>
+          </ul>
+        </div>
+      </li>
+      <li><button class="lang-toggle" id="langToggle">EN</button></li>
+      <li><a href="#" class="chat-link" id="chatBtn">Chat <span class="chat-icon">💬</span></a></li>
+    </ul>
   </nav>
 
-  <!-- Right-Side Menu -->
-  <div id="rightSideMenu" class="side-menu">
-    <button id="menu-close" class="close-btn" aria-label="Close Menu">
-      <i class="fa-solid fa-arrow-right"></i>
-    </button>
-    <ul class="side-menu-list">
-      <li><a href="landing-page.html" data-en="Home" data-es="Inicio">Home</a></li>
-      <li><a href="business-operations.html" data-en="Business Operations" data-es="Operaciones">Business Operations</a></li>
-      <li><a href="contact-center.html" data-en="Contact Center" data-es="Contacto">Contact Center</a></li>
-      <li><a href="it-support.html" data-en="IT Support" data-es="Soporte IT">IT Support</a></li>
-      <li><a href="professionals.html" data-en="Professionals" data-es="Profesionales">Professionals</a></li>
-      <li class="services-trigger">
-        <button data-en="Services" data-es="Servicios">
-          <i class="fa-solid fa-bars"></i>
-          <span data-en="Services" data-es="Servicios">Services</span>
-        </button>
-      </li>
-    </ul>
-    <div id="servicesSubMenu" class="sub-menu">
-      <ul>
-        <li><a href="business-operations.html" data-en="Business Ops" data-es="Ops Empresariales">Business Ops</a></li>
-        <li><a href="contact-center.html" data-en="Contact Center" data-es="Centro de Contacto">Contact Center</a></li>
-        <li><a href="it-support.html" data-en="IT Support" data-es="Soporte IT">IT Support</a></li>
-        <li><a href="professionals.html" data-en="Professionals" data-es="Profesionales">Professionals</a></li>
-      </ul>
+  <!-- PAGE CONTENT -->
+  <header>
+    <h1>Business Operations</h1>
+  </header>
+  <main>
+    <p>This is the Business Operations page. Content goes here.</p>
+  </main>
+
+  <!-- CONTACT US / JOIN US FORMS (HIDDEN) -->
+  <div class="overlay" id="contactFormOverlay">
+    <div class="popup-form">
+      <span class="close-popup" id="closeContactForm">&times;</span>
+      <h2>Contact Us</h2>
+      <form>
+        <!-- same as index.html form fields -->
+        <label for="contact-name">Name:</label>
+        <input type="text" id="contact-name" placeholder="Your Name" required>
+        <label for="contact-email">Email:</label>
+        <input type="email" id="contact-email" placeholder="Your Email" required>
+        <label for="contact-msg">Message:</label>
+        <textarea id="contact-msg" placeholder="Your Message"></textarea>
+        <button type="submit">Submit</button>
+      </form>
     </div>
   </div>
 
-  <!-- Floating Icons -->
-  <div class="floating-icons">
-    <button class="floating-icon" data-modal="join-modal" aria-label="Join Us">
-      <i class="fa-solid fa-user-plus"></i>
-    </button>
-    <button class="floating-icon" data-modal="contact-modal" aria-label="Contact Us">
-      <i class="fa-solid fa-envelope-open-text"></i>
-    </button>
-  </div>
-
- <!-- Join Us Modal -->
-  <div id="join-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="joinModalTitle">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h3 id="joinModalTitle" data-en="Join Us" data-es="Únete a Nosotros">Join Us</h3>
-        <button class="close-modal" data-close aria-label="Close">&times;</button>
-      </div>
-      <div class="modal-body">
-        <form id="join-form">
-          <!-- Rows with your input fields -->
-          <div class="form-row">
-            <div class="form-cell">
-              <label for="join-name" data-en="Name" data-es="Nombre">Name</label>
-              <input type="text" id="join-name" placeholder="Enter your name" required>
-            </div>
-            <div class="form-cell">
-              <label for="join-email" data-en="Email" data-es="Correo">Email</label>
-              <input type="email" id="join-email" placeholder="Enter your email" required>
-            </div>
-          </div>
-          <!-- Add more rows as needed -->
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="submit" form="join-form" class="submit-button" data-en="Submit" data-es="Enviar">Submit</button>
-      </div>
+  <div class="overlay" id="joinFormOverlay">
+    <div class="popup-form">
+      <span class="close-popup" id="closeJoinForm">&times;</span>
+      <h2>Join Us</h2>
+      <form>
+        <!-- same as index.html form fields -->
+        <label for="join-name">Full Name:</label>
+        <input type="text" id="join-name" placeholder="Your Full Name" required>
+        <label for="join-email">Email:</label>
+        <input type="email" id="join-email" placeholder="Your Email" required>
+        <label for="join-position">Position:</label>
+        <input type="text" id="join-position" placeholder="Position Interested In">
+        <button type="submit">Apply</button>
+      </form>
     </div>
   </div>
 
-  <!-- Contact Us Modal -->
-  <div id="contact-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="contactModalTitle">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h3 id="contactModalTitle" data-en="Contact Us" data-es="Contáctenos">Contact Us</h3>
-        <button class="close-modal" data-close aria-label="Close">&times;</button>
-      </div>
-      <div class="modal-body">
-        <form id="contact-form">
-          <!-- Rows with your input fields -->
-          <div class="form-row">
-            <div class="form-cell">
-              <label for="contact-name" data-en="Name" data-es="Nombre">Name</label>
-              <input type="text" id="contact-name" placeholder="Enter your name" required>
-            </div>
-            <div class="form-cell">
-              <label for="contact-email" data-en="Email" data-es="Correo">Email</label>
-              <input type="email" id="contact-email" placeholder="Enter your email" required>
-            </div>
-          </div>
-          <!-- Add more rows as needed -->
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="submit" form="contact-form" class="submit-button" data-en="Send" data-es="Enviar">Send</button>
-      </div>
-    </div>
-  </div>
-  <!-- JS Files -->
-  <script src="js/particles-config.js"></script>
+  <!-- SHARED JS -->
   <script src="js/main.js"></script>
 </body>
 </html>
