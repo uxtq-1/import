@@ -1,247 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-   <!-- ==================================================================
-       Document Metadata & External Resources
-       ================================================================== -->
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Ops Online Support - Contact Center</title>
-  
-  <!-- ==================================================================
-       CSS Stylesheets
-       ================================================================== -->
-    <link rel="stylesheet" href="css/global.css">
-  <!-- Additional overrides for small screens -->
-  <link rel="stylesheet" media="(max-width: 768px)" href="css/small-screens.css">
-  <!-- Font Awesome Stylesheet -->
-  <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-        crossorigin="anonymous">
-  <link rel="manifest" href="manifest.json">
-  <link rel="icon" href="assets/favicon.ico">
-</head>
-<body>
-  <!-- ==================================================================
-       Inline CSS: Dark Theme & Particles Background Styling
-       ================================================================== -->
-  <style>
-    /* Enforce dark theme */
-    body {
-      background-color: #000;
-      color: #fff;
-    }
-    /* Ensure particles container spans full viewport */
-    #particles-js {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -1; /* Keeps particles behind other content */
-    }
-  </style>
 
-  <!-- ==================================================================
-       Particles.js Library
-       ================================================================== -->
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    crossorigin="anonymous"
+  />
+
+  <!-- Global CSS -->
+  <link rel="stylesheet" href="css/global.css" />
+
+  <!-- Particles.js Library -->
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 </head>
 <body>
-  <!-- ==================================================================
-       Particles Background Container
-       ================================================================== -->
   <div id="particles-js"></div>
-
- <!-- ==================================================================
-       Header Section: Navigation & Toggle Buttons (Desktop Only)
-       ================================================================== -->
-  <header>
+  
+  <!-- Desktop Header -->
+  <header class="desktop-header">
     <nav>
       <ul>
         <li><a href="landing-page.html" data-en="Home" data-es="Inicio">Home</a></li>
-        <li><a href="business-operations.html" data-en="Business Operations" data-es="Operaciones Empresariales">Business Operations</a></li>
-        <li><a href="contact-center.html" data-en="Contact Center" data-es="Centro de Contacto">Contact Center</a></li>
+        <li><a href="business-operations.html" data-en="Business Operations" data-es="Operaciones">Business Operations</a></li>
+        <li><a href="contact-center.html" data-en="Contact Center" data-es="Contacto">Contact Center</a></li>
         <li><a href="it-support.html" data-en="IT Support" data-es="Soporte IT">IT Support</a></li>
         <li><a href="professionals.html" data-en="Professionals" data-es="Profesionales">Professionals</a></li>
       </ul>
     </nav>
-  <div class="toggle-container">
-      <button id="theme-toggle"></button>
-      <button id="language-toggle"></button>
-    </div>
+    <button id="language-toggle-desktop" class="lang-toggle">EN</button>
   </header>
 
- <!-- ==================================================================
-       Hero Section: Professionals Content
-       ================================================================== -->
- <section class="hero">
-    <h2 data-en="Contact Center" data-es="Centro de Contacto">Contact Center</h2>
-    <p data-en="Enhance your customer experience with our advanced contact solutions." data-es="Mejora la experiencia de tus clientes con nuestras soluciones avanzadas de contacto.">
-      Enhance your customer experience with our advanced contact solutions.
-    </p>
-    <img src="assets/images/hero-image.jpg" alt="Contact Center Image" class="hero-image">
+  <main>
+    <section class="hero">
+      <h2 data-en="Contact Center" data-es="Centro de Contacto">Contact Center</h2>
+      <p data-en="Enhance customer interactions with our contact solutions."
+         data-es="Mejora la interacción con tus clientes con nuestras soluciones.">
+         Enhance customer interactions with our contact solutions.
+      </p>
+    </section>
+  </main>
 
-<!-- ==================================================================
-       Footer Section
-       ================================================================== -->
-  </section>
-    <footer>
-    <p>&copy; 2025 OPS Solutions Services. All rights reserved.</p>
-  </footer> 
-  <!-- ==================================================================
-       Floating Icons (Triggers for Modals)
-       ================================================================== -->
-  <div class="floating-icons">
-    <button class="floating-icon" data-modal="join-modal" aria-label="Join Us" tabindex="0">
-      <i class="fas fa-user-plus"></i>
+  <!-- Bottom Nav (Mobile) -->
+  <nav id="mobileNav">
+    <button class="mobile-nav-item" id="menu-open" aria-label="Open Menu">
+      <i class="fa-solid fa-arrow-left"></i>
+      <span data-en="Menu" data-es="Menú">Menu</span>
     </button>
-    <button class="floating-icon" data-modal="contact-modal" aria-label="Contact Us" tabindex="0">
-      <i class="fas fa-envelope-open-text"></i>
+    <button class="mobile-nav-item lang-toggle" id="language-toggle-mobile" aria-label="Toggle Language">
+      <i class="fa-solid fa-language"></i>
+      <span>EN</span>
+    </button>
+  </nav>
+
+  <!-- Right-Side Menu -->
+  <div id="rightSideMenu" class="side-menu">
+    <button id="menu-close" class="close-btn" aria-label="Close Menu">
+      <i class="fa-solid fa-arrow-right"></i>
+    </button>
+    <ul class="side-menu-list">
+      <li><a href="landing-page.html" data-en="Home" data-es="Inicio">Home</a></li>
+      <li><a href="business-operations.html" data-en="Business Operations" data-es="Operaciones">Business Operations</a></li>
+      <li><a href="contact-center.html" data-en="Contact Center" data-es="Contacto">Contact Center</a></li>
+      <li><a href="it-support.html" data-en="IT Support" data-es="Soporte IT">IT Support</a></li>
+      <li><a href="professionals.html" data-en="Professionals" data-es="Profesionales">Professionals</a></li>
+      <li class="services-trigger">
+        <button data-en="Services" data-es="Servicios">
+          <i class="fa-solid fa-bars"></i>
+          <span data-en="Services" data-es="Servicios">Services</span>
+        </button>
+      </li>
+    </ul>
+    <div id="servicesSubMenu" class="sub-menu">
+      <ul>
+        <li><a href="business-operations.html" data-en="Business Ops" data-es="Ops Empresariales">Business Ops</a></li>
+        <li><a href="contact-center.html" data-en="Contact Center" data-es="Centro de Contacto">Contact Center</a></li>
+        <li><a href="it-support.html" data-en="IT Support" data-es="Soporte IT">IT Support</a></li>
+        <li><a href="professionals.html" data-en="Professionals" data-es="Profesionales">Professionals</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Floating Icons -->
+  <div class="floating-icons">
+    <button class="floating-icon" data-modal="join-modal" aria-label="Join Us">
+      <i class="fa-solid fa-user-plus"></i>
+    </button>
+    <button class="floating-icon" data-modal="contact-modal" aria-label="Contact Us">
+      <i class="fa-solid fa-envelope-open-text"></i>
     </button>
   </div>
-  <!-- ==================================================================
-       Join Modal
-       ================================================================== -->
-  <div id="join-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="joinModalTitle">
+
+  <!-- Join Us Modal -->
+  <div id="join-modal" class="modal-overlay" role="dialog" aria-modal="true">
     <div class="modal-content">
-      <!-- Modal Header: Title & Close Button -->
       <div class="modal-header">
-        <h3 id="joinModalTitle" data-en="Join Us" data-es="Únete a Nosotros">Join Us</h3>
+        <h3 data-en="Join Us" data-es="Únete a Nosotros">Join Us</h3>
         <button class="close-modal" data-close aria-label="Close">&times;</button>
       </div>
-      <!-- Modal Body: Form with Grid (Table-like) Layout -->
       <div class="modal-body">
         <form id="join-form">
-          <!-- Row 1 -->
-          <div class="form-row">
-            <div class="form-cell">
-              <label for="join-name" data-en="Name" data-es="Nombre">Name</label>
-              <input type="text" id="join-name" placeholder="Enter your name" required>
-            </div>
-            <div class="form-cell">
-              <label for="join-email" data-en="Email" data-es="Correo Electrónico">Email</label>
-              <input type="email" id="join-email" placeholder="Enter your email" required>
-            </div>
-          </div>
-          <!-- Row 2 -->
-          <div class="form-row">
-            <div class="form-cell">
-              <label for="join-contact" data-en="Contact Number" data-es="Número de Contacto">Contact Number</label>
-              <input type="tel" id="join-contact" placeholder="Enter your contact number" required>
-            </div>
-            <div class="form-cell">
-              <label for="join-date" data-en="Date" data-es="Fecha">Date</label>
-              <input type="date" id="join-date" required>
-            </div>
-          </div>
-          <!-- Row 3 -->
-          <div class="form-row">
-            <div class="form-cell">
-              <label for="join-time" data-en="Time" data-es="Hora">Time</label>
-              <input type="time" id="join-time" required>
-            </div>
-            <div class="form-cell">
-              <label for="join-resume" data-en="Upload Your Resume" data-es="Sube tu Currículum">Upload Your Resume</label>
-              <input type="file" id="join-resume" accept=".pdf,.doc,.docx" required>
-            </div>
-          </div>
-          <!-- Row 4 -->
-          <div class="form-row">
-            <div class="form-cell">
-              <label for="join-cover" data-en="Upload Your Cover Letter" data-es="Sube tu Carta de Presentación">Upload Your Cover Letter</label>
-              <input type="file" id="join-cover" accept=".pdf,.doc,.docx" required>
-            </div>
-            <div class="form-cell">
-              <label for="join-comment" data-en="Comment" data-es="Comentario">Comment</label>
-              <textarea id="join-comment" rows="4" placeholder="Tell us about yourself" required></textarea>
-            </div>
-          </div>
+          <!-- your input fields -->
         </form>
       </div>
-      <!-- Modal Footer: Submit Button -->
       <div class="modal-footer">
         <button type="submit" form="join-form" class="submit-button" data-en="Submit" data-es="Enviar">Submit</button>
       </div>
     </div>
   </div>
-  
- <!-- ==================================================================
-       Contact Modal
-       ================================================================== -->
-  <div id="contact-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="contactModalTitle">
+
+  <!-- Contact Us Modal -->
+  <div id="contact-modal" class="modal-overlay" role="dialog" aria-modal="true">
     <div class="modal-content">
-      <!-- Modal Header: Title & Close Button -->
       <div class="modal-header">
-        <h3 id="contactModalTitle" data-en="Contact Us" data-es="Contáctenos">Contact Us</h3>
+        <h3 data-en="Contact Us" data-es="Contáctenos">Contact Us</h3>
         <button class="close-modal" data-close aria-label="Close">&times;</button>
       </div>
-      <!-- Modal Body: Form with Grid (Table-like) Layout -->
       <div class="modal-body">
         <form id="contact-form">
-          <!-- Row 1 -->
-          <div class="form-row">
-            <div class="form-cell">
-              <label for="contact-name" data-en="Name" data-es="Nombre">Name</label>
-              <input type="text" id="contact-name" placeholder="Enter your name" required>
-            </div>
-            <div class="form-cell">
-              <label for="contact-email" data-en="Email" data-es="Correo Electrónico">Email</label>
-              <input type="email" id="contact-email" placeholder="Enter your email" required>
-            </div>
-          </div>
-          <!-- Row 2 -->
-          <div class="form-row">
-            <div class="form-cell">
-              <label for="contact-number" data-en="Contact Number" data-es="Número de Contacto">Contact Number</label>
-              <input type="tel" id="contact-number" placeholder="Enter your contact number" required>
-            </div>
-            <div class="form-cell">
-              <label for="contact-date" data-en="Preferred Date" data-es="Fecha Preferida">Preferred Date</label>
-              <input type="date" id="contact-date" required>
-            </div>
-          </div>
-          <!-- Row 3 -->
-          <div class="form-row">
-            <div class="form-cell">
-              <label for="contact-time" data-en="Preferred Time" data-es="Hora Preferida">Preferred Time</label>
-              <input type="time" id="contact-time" required>
-            </div>
-            <div class="form-cell">
-              <label for="contact-comments" data-en="Comments" data-es="Comentarios">Comments</label>
-              <textarea id="contact-comments" rows="4" placeholder="What service are you interested in?" required></textarea>
-            </div>
-          </div>
+          <!-- your input fields -->
         </form>
       </div>
-        <!-- ==================================================================
-       Modal Footer: Submit Button
-       ================================================================== -->
-      
       <div class="modal-footer">
         <button type="submit" form="contact-form" class="submit-button" data-en="Send" data-es="Enviar">Send</button>
       </div>
     </div>
   </div>
-  <!-- ==================================================================
-       Hidden Mobile Services Menu
-       ================================================================== -->
-  <!-- Hidden Mobile Services Menu -->
-  <div class="mobile-services-menu" id="mobile-services-menu">
-    <ul>
-      <li><a href="business-operations.html">Business Operations</a></li>
-      <li><a href="contact-center.html">Contact Center</a></li>
-      <li><a href="it-support.html">IT Support</a></li>
-      <li><a href="professionals.html">Professionals</a></li>
-    </ul>
-  </div>
-  
-  <!-- ==================================================================
-       JavaScript: Main Functionality & Particles Initialization
-       ================================================================== -->
-  <!-- Load particles-config.js first so the background is set up -->
+
+  <!-- JS Files -->
   <script src="js/particles-config.js"></script>
   <script src="js/main.js"></script>
-  <script src="js/service-worker.js"></script>
 </body>
 </html>
