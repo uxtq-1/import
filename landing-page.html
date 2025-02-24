@@ -12,11 +12,10 @@
        CSS Stylesheets
        ================================================================== -->
   <link rel="stylesheet" href="css/global.css">
-  <link rel="stylesheet" media="(max-width:768px)" href="css/small-screens.css">
+  <link rel="stylesheet" media="(max-width: 768px)" href="css/small-screens.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" crossorigin="anonymous">
   <link rel="manifest" href="manifest.json">
   <link rel="icon" href="assets/favicon.ico">
-
   <!-- ==================================================================
        Inline CSS: Dark Theme & Particles Background Styling
        ================================================================== -->
@@ -53,8 +52,9 @@
        ================================================================== -->
   <header>
     <nav>
+      <nav>
       <ul>
-        <li><a href="index.html" data-en="Home" data-es="Inicio">Home</a></li>
+        <li><a href="landing-page.html" data-en="Home" data-es="Inicio">Home</a></li>
         <li><a href="business-operations.html" data-en="Business Operations" data-es="Operaciones Empresariales">Business Operations</a></li>
         <li><a href="contact-center.html" data-en="Contact Center" data-es="Centro de Contacto">Contact Center</a></li>
         <li><a href="it-support.html" data-en="IT Support" data-es="Soporte IT">IT Support</a></li>
@@ -62,8 +62,8 @@
       </ul>
     </nav>
     <div class="toggle-container">
-      <button id="theme-toggle"></button>
-      <button id="language-toggle"></button>
+      <button id="theme-toggle">Dark</button>
+      <button id="language-toggle">EN</button>
     </div>
   </header>
 
@@ -77,8 +77,7 @@
     <p data-en="Empowering remote solutions with cutting-edge strategies." data-es="Impulsando soluciones remotas con estrategias innovadoras.">
       Empowering remote solutions with cutting-edge strategies.
     </p>
-    <!-- Uncomment the following line if you wish to display a hero image -->
-    <!-- <img src="assets/images/hero-image.jpg" alt="Hero Image" class="hero-image"> -->
+  <img src="assets/images/hero-image.jpg" alt="Hero Image" class="hero-image">
   </section>
 
   <!-- ==================================================================
@@ -134,6 +133,46 @@
     </button>
   </div>
 
+    <!-- ==================================================================
+       Mobile Bottom Navigation & Services Menu (Small Screens)
+       ================================================================== -->
+  <!-- Mobile Bottom Navigation Bar -->
+ <nav id="mobileNav" role="navigation" aria-label="Mobile Navigation">
+    <!-- Home Button -->
+    <a href="landing-page.html" class="mobile-nav-item" aria-label="Home">
+      <i class="fas fa-home"></i>
+      <span>Home</span>
+    </a>
+     <!-- Services Hamburger Button -->
+    <button class="mobile-nav-item" id="servicesToggle" aria-label="Services">
+      <i class="fas fa-bars"></i>
+      <span>Services</span>
+    </button>
+    <!-- Language Toggle -->
+    <button class="mobile-nav-item" id="language-toggle-mobile" aria-label="Language Toggle">
+      <i class="fas fa-language"></i>
+      <span>EN</span>
+    </button>
+    <!-- Theme Toggle -->
+    <button class="mobile-nav-item" id="theme-toggle-mobile" aria-label="Theme Toggle">
+      <i class="fas fa-adjust"></i>
+      <span>Light</span>
+    </button>
+    <!-- Chat Button -->
+    <button class="mobile-nav-item" id="chatToggle" aria-label="Chat">
+      <i class="fas fa-comment-alt"></i>
+      <span>Chat</span>
+    </button>
+  </nav>
+  <!-- Hidden Mobile Services Menu -->
+  <div class="mobile-services-menu" id="mobile-services-menu">
+    <ul>
+      <li><a href="business-operations.html">Business Operations</a></li>
+      <li><a href="contact-center.html">Contact Center</a></li>
+      <li><a href="it-support.html">IT Support</a></li>
+      <li><a href="professionals.html">Professionals</a></li>
+    </ul>
+  </div>
   <!-- ==================================================================
        Join Modal
        ================================================================== -->
@@ -241,49 +280,7 @@
       </div>
     </div>
   </div>
-
-  <!-- ==================================================================
-       Mobile Bottom Navigation & Services Menu (Small Screens)
-       ================================================================== -->
-  <!-- Mobile Bottom Navigation Bar -->
-  <nav id="mobileNav" role="navigation" aria-label="Mobile Navigation">
-    <!-- Home Button -->
-    <a href="landing-page.html" class="mobile-nav-item" aria-label="Home">
-      <i class="fas fa-home"></i>
-      <span>Home</span>
-    </a>
-  <!-- Services Hamburger Button -->
-    <button class="mobile-nav-item" id="servicesToggle" aria-label="Services">
-      <i class="fas fa-bars"></i>
-      <span>Services</span>
-    </button>
-    <!-- Language Toggle -->
-    <button class="mobile-nav-item" id="languageToggleMobile" aria-label="Language Toggle">
-      <i class="fas fa-language"></i>
-      <span>EN</span>
-    </button>
-    <!-- Theme Toggle -->
-    <button class="mobile-nav-item" id="themeToggleMobile" aria-label="Theme Toggle">
-      <i class="fas fa-adjust"></i>
-      <span>Light</span>
-    </button>
-    <!-- Chat Button -->
-    <button class="mobile-nav-item" id="chatToggle" aria-label="Chat">
-      <i class="fas fa-comment-alt"></i>
-      <span>Chat</span>
-    </button>
-  </nav>
-  <!-- Hidden Mobile Services Menu -->
-  <div class="mobile-services-menu" id="mobile-services-menu">
-    <ul>
-      <li><a href="business-operations.html">Business Operations</a></li>
-      <li><a href="contact-center.html">Contact Center</a></li>
-      <li><a href="it-support.html">IT Support</a></li>
-      <li><a href="professionals.html">Professionals</a></li>
-    </ul>
-  </div>
-
-  <!-- ==================================================================
+    <!-- ==================================================================
        JavaScript: Main Functionality, Particles Initialization & Mobile Menu Toggle
        ================================================================== -->
   <script src="js/particles-config.js"></script>
