@@ -1,117 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- ==================================================================
-       Document Metadata & External Resources
-       ================================================================== -->
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ops Online Support - Landing Page</title>
-  
-  <!-- ==================================================================
-       CSS Stylesheets
-       ================================================================== -->
-  <link rel="stylesheet" href="css/global.css">
-  <link rel="stylesheet" media="(max-width:768px)" href="css/small-screens.css">
-  <!-- Font Awesome Stylesheet -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" crossorigin="anonymous">
-  <link rel="manifest" href="manifest.json">
-  <link rel="icon" href="assets/favicon.ico">
-  
-  <!-- ==================================================================
-       Particles.js Library
-       ================================================================== -->
-  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-  
-  <!-- ==================================================================
-       Inline CSS: Landing Page Specific Styles & Typewriter Effect
-       ================================================================== -->
-  <style>
-    /* Landing Page Base Styles - Dark Theme */
-    html, body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      font-family: Arial, sans-serif;
-      background: light purple; /* light purple background */
-      color: black;
-      overflow: hidden;
-    }
-    /* Particles Background Container */
-    #particles-js {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-    }
-    /* Landing Content Container */
-    .landing-container {
-      position: relative;
-      z-index: 10;
-      text-align: center;
-      padding-top: 20%;
-    }
-    /* Typewriter Effect for Headline */
-    .typewriter {
-      overflow: hidden;              /* Hide overflowing text */
-      border-right: 0.15em solid #fff; /* Typewriter cursor */
-      white-space: nowrap;           /* Keep text in one line */
-      letter-spacing: 0.15em;
-      font-size: 1.5rem;
-      max-width: 100%;
-      margin: 0 auto;
-      animation: typing 4s steps(40, end) forwards, blink-caret 0.75s step-end infinite;
-    }
-    @keyframes typing {
-      from { width: 0; }
-      to { width: 100%; }
-    }
-    @keyframes blink-caret {
-      from, to { border-color: transparent; }
-      50% { border-color: #fff; }
-    }
-    /* Call-to-Action Button */
-    .cta-button {
-      margin-top: 40px;
-      padding: 15px 30px;
-      font-size: 1.2rem;
-      background-color: #00ffff;
-      color: #000;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
-    .cta-button:hover {
-      background-color: #7e69ab;
-    }
-  </style>
+  <title>Index Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- LINK TO SHARED CSS -->
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <!-- ==================================================================
-       Particles Background Container
-       ================================================================== -->
-  <div id="particles-js"></div>
-   
-  <!-- ==================================================================
-       Landing Page Content
-       ================================================================== -->
-  <div class="landing-container">
-    <!-- Typewriter Headline -->
-    <h1 class="typewriter">Empowering Your Growth with Cutting-Edge Remote Support</h1>
-    <!-- Optional descriptive text -->
-    <p>Ops Online Support: The Future of Remote Support</p>
-    <!-- Call-to-Action Button -->
-    <button class="cta-button" onclick="window.location.href='landing-page.html'">Click to Advance</button>
+
+  <!-- ========================================
+       FLOATING CONTACT US & JOIN US ICONS
+       ======================================== -->
+  <!-- These icons remain fixed on the screen -->
+  <div class="floating-icons">
+    <!-- CONTACT US BUTTON -->
+    <div class="floating-icon contact-us" id="contactUsBtn">
+      Contact Us
+    </div>
+    <!-- JOIN US BUTTON -->
+    <div class="floating-icon join-us" id="joinUsBtn">
+      Join Us
+    </div>
   </div>
-<!-- ==================================================================
-       JavaScript Files
-       ================================================================== -->
-  <!-- Initialize the Particles Background -->
-  <script src="js/particles-config.js"></script>
-  <!-- Main JS: Handles theme, language, modals, and mobile menu -->
+
+  <!-- ========================================
+       MOBILE NAV TRIGGER (ARROW [<])
+       Only shows on small screens
+       ======================================== -->
+  <div class="mobile-nav-trigger" id="mobileNavTrigger">
+    <span class="arrow">&lt;</span>
+  </div>
+
+  <!-- ========================================
+       MOBILE NAV OVERLAY (SLIDES FROM RIGHT)
+       ======================================== -->
+  <nav class="mobile-nav" id="mobileNav">
+    <!-- CLOSE BUTTON (X) -->
+    <span class="close-btn" id="closeNavBtn">&times;</span>
+
+    <!-- MOBILE NAV CONTENT -->
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li>
+        <a href="#" class="submenu-toggle" id="servicesToggle">Services</a>
+        <!-- Submenu that slides up on click -->
+        <div class="mobile-submenu" id="servicesSubmenu">
+          <ul>
+            <li><a href="business-operations.html">Business Operations</a></li>
+            <li><a href="contact-center.html">Contact Center</a></li>
+            <li><a href="it-support.html">IT Support</a></li>
+            <li><a href="professionals.html">Professionals</a></li>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <!-- LANGUAGE TOGGLE -->
+        <button class="lang-toggle" id="langToggle">EN</button>
+      </li>
+      <li>
+        <!-- CHAT ICON / LINK -->
+        <a href="#" class="chat-link" id="chatBtn">Chat <span class="chat-icon">💬</span></a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- ========================================
+       MAIN CONTENT
+       ======================================== -->
+  <header>
+    <h1>Index Page</h1>
+  </header>
+  <main>
+    <p>Welcome to the Index page.</p>
+    <p>This demonstrates the main layout with floating icons, mobile nav, and more.</p>
+  </main>
+
+  <!-- ========================================
+       CONTACT US & JOIN US FORMS (HIDDEN)
+       ======================================== -->
+  <div class="overlay" id="contactFormOverlay">
+    <div class="popup-form">
+      <span class="close-popup" id="closeContactForm">&times;</span>
+      <h2>Contact Us</h2>
+      <form>
+        <label for="contact-name">Name:</label>
+        <input type="text" id="contact-name" placeholder="Your Name" required>
+        
+        <label for="contact-email">Email:</label>
+        <input type="email" id="contact-email" placeholder="Your Email" required>
+        
+        <label for="contact-msg">Message:</label>
+        <textarea id="contact-msg" placeholder="Your Message"></textarea>
+        
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="overlay" id="joinFormOverlay">
+    <div class="popup-form">
+      <span class="close-popup" id="closeJoinForm">&times;</span>
+      <h2>Join Us</h2>
+      <form>
+        <label for="join-name">Full Name:</label>
+        <input type="text" id="join-name" placeholder="Your Full Name" required>
+        
+        <label for="join-email">Email:</label>
+        <input type="email" id="join-email" placeholder="Your Email" required>
+        
+        <label for="join-position">Position:</label>
+        <input type="text" id="join-position" placeholder="Position Interested In">
+        
+        <button type="submit">Apply</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ========================================
+       JS: link to main.js
+       ======================================== -->
   <script src="js/main.js"></script>
-  <!-- Optional: Service Worker for caching -->
-  <script src="js/service-worker.js"></script> 
 </body>
 </html>
