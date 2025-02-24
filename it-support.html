@@ -1,113 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- ==================================================================
-       Document Metadata & External Resources
-       ================================================================== -->
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Ops Online Support - IT Support</title>
-  
-  <!-- ==================================================================
-       CSS Stylesheets
-       ================================================================== -->
-  <link rel="stylesheet" href="css/global.css">
-  <link rel="stylesheet" media="(max-width:768px)" href="css/small-screens.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" crossorigin="anonymous">
-  <link rel="manifest" href="manifest.json">
-  <link rel="icon" href="assets/favicon.ico">
-  
-  <!-- ==================================================================
-       Inline CSS: Dark Theme & Particles Background Styling
-       ================================================================== -->
-  <style>
-    /* Enforce dark theme */
-    body {
-      background-color: #000;
-      color: #fff;
-    }
-    /* Ensure particles container spans full viewport */
-    #particles-js {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -1; /* Keeps particles behind other content */
-    }
-  </style>
-  
-  <!-- ==================================================================
-       Particles.js Library
-       ================================================================== -->
+
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    crossorigin="anonymous"
+  />
+
+  <!-- Global CSS -->
+  <link rel="stylesheet" href="css/global.css" />
+
+  <!-- Particles.js -->
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 </head>
 <body>
-  <!-- ==================================================================
-       Particles Background Container
-       ================================================================== -->
   <div id="particles-js"></div>
   
-  <!-- ==================================================================
-       Header Section: Navigation & Toggle Buttons
-       ================================================================== -->
-  <header>
+  <!-- Desktop Header -->
+  <header class="desktop-header">
     <nav>
       <ul>
-        <li><a href="index.html" data-en="Home" data-es="Inicio">Home</a></li>
-        <li><a href="business-operations.html" data-en="Business Operations" data-es="Operaciones Empresariales">Business Operations</a></li>
-        <li><a href="contact-center.html" data-en="Contact Center" data-es="Centro de Contacto">Contact Center</a></li>
+        <li><a href="landing-page.html" data-en="Home" data-es="Inicio">Home</a></li>
+        <li><a href="business-operations.html" data-en="Business Operations" data-es="Operaciones">Business Operations</a></li>
+        <li><a href="contact-center.html" data-en="Contact Center" data-es="Contacto">Contact Center</a></li>
         <li><a href="it-support.html" data-en="IT Support" data-es="Soporte IT">IT Support</a></li>
         <li><a href="professionals.html" data-en="Professionals" data-es="Profesionales">Professionals</a></li>
       </ul>
     </nav>
-    <div class="toggle-container">
-      <button id="theme-toggle">Dark</button>
-      <button id="language-toggle">EN/ES</button>
-    </div>
+    <button id="language-toggle-desktop" class="lang-toggle">EN</button>
   </header>
-  
-  <!-- ==================================================================
-       Hero Section: IT Support Content
-       ================================================================== -->
-  <section class="hero">
-    <h2 data-en="IT Support" data-es="Soporte IT">IT Support</h2>
-    <p data-en="Ensure seamless IT operations with our comprehensive support services." data-es="Garantiza operaciones de IT sin problemas con nuestros servicios integrales.">
-      Ensure seamless IT operations with our comprehensive support services.
-    </p>
-    <img src="assets/images/hero-image.jpg" alt="IT Support Image" class="hero-image">
-  </section>
-  
-  <!-- ==================================================================
-       Footer Section
-       ================================================================== -->
-  <footer>
-    <p>&copy; 2025 Ops Online Support. All rights reserved.</p>
-  </footer>
-  
-  <!-- ==================================================================
-       Floating Icons (Triggers for Modals)
-       ================================================================== -->
-  <div class="floating-icons">
-    <button class="floating-icon" data-modal="join-modal" aria-label="Join Us" tabindex="0">
-      <i class="fas fa-user-plus"></i>
+
+  <main>
+    <section class="hero">
+      <h2 data-en="IT Support" data-es="Soporte IT">IT Support</h2>
+      <p data-en="Ensure seamless IT operations with our comprehensive support."
+         data-es="Garantiza operaciones IT fluidas con nuestro soporte integral.">
+         Ensure seamless IT operations with our comprehensive support.
+      </p>
+    </section>
+  </main>
+
+  <!-- Bottom Nav -->
+  <nav id="mobileNav">
+    <button class="mobile-nav-item" id="menu-open" aria-label="Open Menu">
+      <i class="fa-solid fa-arrow-left"></i>
+      <span data-en="Menu" data-es="Menú">Menu</span>
     </button>
-    <button class="floating-icon" data-modal="contact-modal" aria-label="Contact Us" tabindex="0">
-      <i class="fas fa-envelope-open-text"></i>
+    <button class="mobile-nav-item lang-toggle" id="language-toggle-mobile" aria-label="Toggle Language">
+      <i class="fa-solid fa-language"></i>
+      <span>EN</span>
+    </button>
+  </nav>
+
+  <!-- Right-Side Menu -->
+  <div id="rightSideMenu" class="side-menu">
+    <button id="menu-close" class="close-btn" aria-label="Close Menu">
+      <i class="fa-solid fa-arrow-right"></i>
+    </button>
+    <ul class="side-menu-list">
+      <li><a href="landing-page.html" data-en="Home" data-es="Inicio">Home</a></li>
+      <li><a href="business-operations.html" data-en="Business Operations" data-es="Operaciones">Business Operations</a></li>
+      <li><a href="contact-center.html" data-en="Contact Center" data-es="Contacto">Contact Center</a></li>
+      <li><a href="it-support.html" data-en="IT Support" data-es="Soporte IT">IT Support</a></li>
+      <li><a href="professionals.html" data-en="Professionals" data-es="Profesionales">Professionals</a></li>
+      <li class="services-trigger">
+        <button data-en="Services" data-es="Servicios">
+          <i class="fa-solid fa-bars"></i>
+          <span data-en="Services" data-es="Servicios">Services</span>
+        </button>
+      </li>
+    </ul>
+    <div id="servicesSubMenu" class="sub-menu">
+      <ul>
+        <li><a href="business-operations.html" data-en="Business Ops" data-es="Ops Empresariales">Business Ops</a></li>
+        <li><a href="contact-center.html" data-en="Contact Center" data-es="Centro de Contacto">Contact Center</a></li>
+        <li><a href="it-support.html" data-en="IT Support" data-es="Soporte IT">IT Support</a></li>
+        <li><a href="professionals.html" data-en="Professionals" data-es="Profesionales">Professionals</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Floating Icons -->
+  <div class="floating-icons">
+    <button class="floating-icon" data-modal="join-modal" aria-label="Join Us">
+      <i class="fa-solid fa-user-plus"></i>
+    </button>
+    <button class="floating-icon" data-modal="contact-modal" aria-label="Contact Us">
+      <i class="fa-solid fa-envelope-open-text"></i>
     </button>
   </div>
-  
-  <!-- ==================================================================
-       Modals: Join & Contact
-       ================================================================== -->
-  <!-- (Modal HTML remains unchanged from your existing files) -->
-  
-  <!-- ==================================================================
-       JavaScript: Main Functionality & Particles Initialization
-       ================================================================== -->
-  <!-- Load particles-config.js first so the background is set up -->
+
+  <!-- Join Us Modal -->
+  <div id="join-modal" class="modal-overlay">
+    <div class="modal-content">
+      <!-- header, body, footer with form -->
+    </div>
+  </div>
+
+  <!-- Contact Us Modal -->
+  <div id="contact-modal" class="modal-overlay">
+    <div class="modal-content">
+      <!-- header, body, footer with form -->
+    </div>
+  </div>
+
+  <!-- JS -->
   <script src="js/particles-config.js"></script>
   <script src="js/main.js"></script>
-  <script src="js/service-worker.js"></script>
 </body>
 </html>
