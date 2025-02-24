@@ -1,178 +1,125 @@
-/*****************************************************
- * main.js
- * Handles language switching, side menu toggles,
- * services sub-menu, modals, and form submissions.
- *****************************************************/
-document.addEventListener('DOMContentLoaded', function() {
+/***************************************************
+ * MAIN.JS
+ * Manages:
+ *  - Mobile Nav Slide
+ *  - Services Submenu Toggle
+ *  - Click Outside to Close
+ *  - Floating Icon Overlays (Contact & Join)
+ *  - Language Toggle
+ *  - Chat Stub
+ ****************************************************/
 
-  /* ==================================================================
-     1) Language Toggle (EN ↔ ES)
-     ================================================================== */
-  let currentLanguage = localStorage.getItem('language') || 'en';
+/* ========== MOBILE NAV ========== */
+const mobileNav = document.getElementById('mobileNav');
+const mobileNavTrigger = document.getElementById('mobileNavTrigger');
+const closeNavBtn = document.getElementById('closeNavBtn');
 
-  // Desktop & Mobile toggle buttons
-  const langToggleDesktop = document.getElementById('language-toggle-desktop');
-  const langToggleMobile = document.getElementById('language-toggle-mobile');
+// Open nav when clicking the trigger [<]
+if (mobileNavTrigger) {
+  mobileNavTrigger.addEventListener('click', () => {
+    mobileNav.classList.add('open');
+  });
+}
 
-  // Helper function to switch text
-  function updateLanguage(lang) {
-    const elements = document.querySelectorAll('[data-en]');
-    elements.forEach(el => {
-      el.textContent = (lang === 'en')
-        ? el.getAttribute('data-en')
-        : el.getAttribute('data-es');
-    });
+// Close nav when clicking the X
+if (closeNavBtn) {
+  closeNavBtn.addEventListener('click', () => {
+    mobileNav.classList.remove('open');
+  });
+}
+
+// Close nav if clicking outside of it
+document.addEventListener('click', (e) => {
+  // If user clicks outside nav AND outside trigger
+  if (!mobileNav.contains(e.target) && !mobileNavTrigger.contains(e.target)) {
+    mobileNav.classList.remove('open');
   }
+});
 
-  // Initialize language
-  document.body.setAttribute('lang', currentLanguage);
-  updateLanguage(currentLanguage);
-  if (langToggleDesktop) {
-    langToggleDesktop.textContent = (currentLanguage === 'en') ? 'ES' : 'EN';
-  }
-  if (langToggleMobile) {
-    // Usually it's the <span> inside the button that we change
-    const mobileSpan = langToggleMobile.querySelector('span') || langToggleMobile;
-    mobileSpan.textContent = (currentLanguage === 'en') ? 'ES' : 'EN';
-  }
+/* ========== SERVICES SUBMENU ========== */
+const servicesToggle = document.getElementById('servicesToggle');
+const servicesSubmenu = document.getElementById('servicesSubmenu');
 
-  // Toggle function
-  function toggleLanguage() {
-    currentLanguage = (currentLanguage === 'en') ? 'es' : 'en';
-    localStorage.setItem('language', currentLanguage);
-    updateLanguage(currentLanguage);
-    document.body.setAttribute('lang', currentLanguage);
+if (servicesToggle && servicesSubmenu) {
+  servicesToggle.addEventListener('click', (e) => {
+    e.preventDefault();
+    servicesSubmenu.classList.toggle('open');
+  });
+}
 
-    // Update button labels
-    if (langToggleDesktop) {
-      langToggleDesktop.textContent = (currentLanguage === 'en') ? 'ES' : 'EN';
+/* ========== LANGUAGE TOGGLE ========== */
+const langToggle = document.getElementById('langToggle');
+if (langToggle) {
+  langToggle.addEventListener('click', () => {
+    if (langToggle.innerText === 'EN') {
+      langToggle.innerText = 'ES';
+      alert('Language switched to Spanish');
+      // Insert your real multi-language logic here
+    } else {
+      langToggle.innerText = 'EN';
+      alert('Language switched to English');
     }
-    if (langToggleMobile) {
-      const mobileSpan = langToggleMobile.querySelector('span') || langToggleMobile;
-      mobileSpan.textContent = (currentLanguage === 'en') ? 'ES' : 'EN';
+  });
+}
+
+/* ========== CHAT BUTTON ========== */
+const chatBtn = document.getElementById('chatBtn');
+if (chatBtn) {
+  chatBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    alert('Chat triggered!');
+    // Insert chat widget logic here
+  });
+}
+
+/* ========== FLOATING ICONS: CONTACT/ JOIN FORMS ========== */
+const contactUsBtn = document.getElementById('contactUsBtn');
+const joinUsBtn = document.getElementById('joinUsBtn');
+const contactFormOverlay = document.getElementById('contactFormOverlay');
+const joinFormOverlay = document.getElementById('joinFormOverlay');
+const closeContactForm = document.getElementById('closeContactForm');
+const closeJoinForm = document.getElementById('closeJoinForm');
+
+// Show Contact Us form
+if (contactUsBtn && contactFormOverlay) {
+  contactUsBtn.addEventListener('click', () => {
+    contactFormOverlay.style.display = 'flex'; // Using flex for centering
+  });
+}
+
+// Show Join Us form
+if (joinUsBtn && joinFormOverlay) {
+  joinUsBtn.addEventListener('click', () => {
+    joinFormOverlay.style.display = 'flex';
+  });
+}
+
+// Close Contact Us form
+if (closeContactForm && contactFormOverlay) {
+  closeContactForm.addEventListener('click', () => {
+    contactFormOverlay.style.display = 'none';
+  });
+}
+
+// Close Join Us form
+if (closeJoinForm && joinFormOverlay) {
+  closeJoinForm.addEventListener('click', () => {
+    joinFormOverlay.style.display = 'none';
+  });
+}
+
+// Also close overlays if user clicks outside the form
+document.addEventListener('click', (e) => {
+  if (contactFormOverlay && contactFormOverlay.style.display === 'flex') {
+    const popup = contactFormOverlay.querySelector('.popup-form');
+    if (!popup.contains(e.target) && e.target !== contactUsBtn) {
+      contactFormOverlay.style.display = 'none';
     }
   }
-
-  // Event listeners for toggles
-  if (langToggleDesktop) {
-    langToggleDesktop.addEventListener('click', toggleLanguage);
+  if (joinFormOverlay && joinFormOverlay.style.display === 'flex') {
+    const popup2 = joinFormOverlay.querySelector('.popup-form');
+    if (!popup2.contains(e.target) && e.target !== joinUsBtn) {
+      joinFormOverlay.style.display = 'none';
+    }
   }
-  if (langToggleMobile) {
-    langToggleMobile.addEventListener('click', toggleLanguage);
-  }
-
-  /* ==================================================================
-     2) Right-Side Main Menu: Open/Close
-     ================================================================== */
-  const menuOpenBtn = document.getElementById('menu-open');
-  const menuCloseBtn = document.getElementById('menu-close');
-  const rightSideMenu = document.getElementById('rightSideMenu');
-
-  if (menuOpenBtn && menuCloseBtn && rightSideMenu) {
-    // Open side menu (slide in)
-    menuOpenBtn.addEventListener('click', () => {
-      rightSideMenu.classList.add('open');
-    });
-    // Close side menu (slide out)
-    menuCloseBtn.addEventListener('click', () => {
-      rightSideMenu.classList.remove('open');
-      // Ensure sub-menu is also closed
-      if (servicesSubMenu) {
-        servicesSubMenu.classList.remove('open');
-      }
-    });
-  }
-
-  /* ==================================================================
-     3) Services Sub-Menu: Slide Up
-     ================================================================== */
-  const servicesTrigger = document.querySelector('.services-trigger button');
-  const servicesSubMenu = document.getElementById('servicesSubMenu');
-
-  if (servicesTrigger && servicesSubMenu) {
-    // Toggle sub-menu open/close on button click
-    servicesTrigger.addEventListener('click', (e) => {
-      e.stopPropagation(); // Prevent immediate closing
-      servicesSubMenu.classList.toggle('open');
-    });
-
-    // Close sub-menu if user clicks outside
-    document.addEventListener('click', (evt) => {
-      const clickInsideTrigger = servicesTrigger.contains(evt.target);
-      const clickInsideSubMenu = servicesSubMenu.contains(evt.target);
-      if (!clickInsideTrigger && !clickInsideSubMenu) {
-        servicesSubMenu.classList.remove('open');
-      }
-    });
-  }
-
-  /* ==================================================================
-     4) Modals (Join Us & Contact Us)
-     ================================================================== */
-  const modalOverlays = document.querySelectorAll('.modal-overlay');
-  const floatingIcons = document.querySelectorAll('.floating-icon');
-  const closeModalButtons = document.querySelectorAll('[data-close]');
-
-  // Open modal on icon click
-  floatingIcons.forEach(icon => {
-    icon.addEventListener('click', () => {
-      const modalId = icon.getAttribute('data-modal');
-      const targetModal = document.getElementById(modalId);
-      if (targetModal) {
-        targetModal.classList.add('active');
-      }
-    });
-  });
-
-  // Close modal (close button)
-  closeModalButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const parentModal = btn.closest('.modal-overlay');
-      if (parentModal) {
-        parentModal.classList.remove('active');
-      }
-    });
-  });
-
-  // Close modal on clicking outside or pressing ESC
-  modalOverlays.forEach(overlay => {
-    // Click outside the modal-content
-    overlay.addEventListener('click', (e) => {
-      if (e.target === overlay) {
-        overlay.classList.remove('active');
-      }
-    });
-    // ESC key
-    overlay.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        overlay.classList.remove('active');
-      }
-    });
-  });
-
-  /* ==================================================================
-     5) Form Submissions: Alert + Reset
-     ================================================================== */
-  const joinForm = document.getElementById('join-form');
-  if (joinForm) {
-    joinForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      alert('Thank you for joining us! We have received your details.');
-      joinForm.reset();
-      // Optional: close the modal
-      document.getElementById('join-modal').classList.remove('active');
-    });
-  }
-
-  const contactForm = document.getElementById('contact-form');
-  if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      alert('Thank you for contacting us! We will get back to you soon.');
-      contactForm.reset();
-      // Optional: close the modal
-      document.getElementById('contact-modal').classList.remove('active');
-    });
-  }
-
 });
