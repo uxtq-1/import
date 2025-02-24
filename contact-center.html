@@ -95,16 +95,27 @@
     </button>
   </div>
 
-  <!-- Join Us Modal -->
-  <div id="join-modal" class="modal-overlay" role="dialog" aria-modal="true">
+ <!-- Join Us Modal -->
+  <div id="join-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="joinModalTitle">
     <div class="modal-content">
       <div class="modal-header">
-        <h3 data-en="Join Us" data-es="Únete a Nosotros">Join Us</h3>
+        <h3 id="joinModalTitle" data-en="Join Us" data-es="Únete a Nosotros">Join Us</h3>
         <button class="close-modal" data-close aria-label="Close">&times;</button>
       </div>
       <div class="modal-body">
         <form id="join-form">
-          <!-- your input fields -->
+          <!-- Rows with your input fields -->
+          <div class="form-row">
+            <div class="form-cell">
+              <label for="join-name" data-en="Name" data-es="Nombre">Name</label>
+              <input type="text" id="join-name" placeholder="Enter your name" required>
+            </div>
+            <div class="form-cell">
+              <label for="join-email" data-en="Email" data-es="Correo">Email</label>
+              <input type="email" id="join-email" placeholder="Enter your email" required>
+            </div>
+          </div>
+          <!-- Add more rows as needed -->
         </form>
       </div>
       <div class="modal-footer">
@@ -114,15 +125,26 @@
   </div>
 
   <!-- Contact Us Modal -->
-  <div id="contact-modal" class="modal-overlay" role="dialog" aria-modal="true">
+  <div id="contact-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="contactModalTitle">
     <div class="modal-content">
       <div class="modal-header">
-        <h3 data-en="Contact Us" data-es="Contáctenos">Contact Us</h3>
+        <h3 id="contactModalTitle" data-en="Contact Us" data-es="Contáctenos">Contact Us</h3>
         <button class="close-modal" data-close aria-label="Close">&times;</button>
       </div>
       <div class="modal-body">
         <form id="contact-form">
-          <!-- your input fields -->
+          <!-- Rows with your input fields -->
+          <div class="form-row">
+            <div class="form-cell">
+              <label for="contact-name" data-en="Name" data-es="Nombre">Name</label>
+              <input type="text" id="contact-name" placeholder="Enter your name" required>
+            </div>
+            <div class="form-cell">
+              <label for="contact-email" data-en="Email" data-es="Correo">Email</label>
+              <input type="email" id="contact-email" placeholder="Enter your email" required>
+            </div>
+          </div>
+          <!-- Add more rows as needed -->
         </form>
       </div>
       <div class="modal-footer">
@@ -130,7 +152,6 @@
       </div>
     </div>
   </div>
-
   <!-- JS Files -->
   <script src="js/particles-config.js"></script>
   <script src="js/main.js"></script>
