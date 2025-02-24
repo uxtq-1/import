@@ -1,129 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- ==================================================================
+       Document Metadata & External Resources
+       ================================================================== -->
   <meta charset="UTF-8">
-  <title data-i18n-key="title_index">Company Landing Page</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- LINK TO SHARED CSS -->
-  <link rel="stylesheet" href="css/style.css">
-  <!-- Identify this page in a data attribute for translation lookups -->
-  <meta data-page="index">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ops Online Support - Landing Page</title>
+  
+  <!-- ==================================================================
+       CSS Stylesheets
+       ================================================================== -->
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" media="(max-width:768px)" href="css/small-screens.css">
+  <!-- Font Awesome Stylesheet -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" crossorigin="anonymous">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="assets/favicon.ico">
+  
+  <!-- ==================================================================
+       Particles.js Library
+       ================================================================== -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  
+  <!-- ==================================================================
+       Inline CSS: Landing Page Specific Styles & Typewriter Effect
+       ================================================================== -->
+  <style>
+    /* Landing Page Base Styles - Dark Theme */
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: Arial, sans-serif;
+      background: light purple; /* light purple background */
+      color: black;
+      overflow: hidden;
+    }
+    /* Particles Background Container */
+    #particles-js {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+    /* Landing Content Container */
+    .landing-container {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      padding-top: 20%;
+    }
+    /* Typewriter Effect for Headline */
+    .typewriter {
+      overflow: hidden;              /* Hide overflowing text */
+      border-right: 0.15em solid #fff; /* Typewriter cursor */
+      white-space: nowrap;           /* Keep text in one line */
+      letter-spacing: 0.15em;
+      font-size: 1.5rem;
+      max-width: 100%;
+      margin: 0 auto;
+      animation: typing 4s steps(40, end) forwards, blink-caret 0.75s step-end infinite;
+    }
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+    @keyframes blink-caret {
+      from, to { border-color: transparent; }
+      50% { border-color: #fff; }
+    }
+    /* Call-to-Action Button */
+    .cta-button {
+      margin-top: 40px;
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      background-color: #00ffff;
+      color: #000;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .cta-button:hover {
+      background-color: #7e69ab;
+    }
+  </style>
 </head>
 <body>
-
-  <!-- FLOATING CONTACT US & JOIN US ICONS -->
-  <div class="floating-icons">
-    <div class="floating-icon contact-us" id="contactUsBtn" data-i18n-key="contact_us_btn">Contact Us</div>
-    <div class="floating-icon join-us" id="joinUsBtn" data-i18n-key="join_us_btn">Join Us</div>
+  <!-- ==================================================================
+       Particles Background Container
+       ================================================================== -->
+  <div id="particles-js"></div>
+   
+  <!-- ==================================================================
+       Landing Page Content
+       ================================================================== -->
+  <div class="landing-container">
+    <!-- Typewriter Headline -->
+    <h1 class="typewriter">Empowering Your Growth with Cutting-Edge Remote Support</h1>
+    <!-- Optional descriptive text -->
+    <p>Ops Online Support: The Future of Remote Support</p>
+    <!-- Call-to-Action Button -->
+    <button class="cta-button" onclick="window.location.href='landing-page.html'">Click to Advance</button>
   </div>
-
-  <!-- MOBILE NAV TRIGGER (ARROW [<]) -->
-  <div class="mobile-nav-trigger" id="mobileNavTrigger">
-    <span class="arrow" data-i18n-key="arrow_symbol">&lt;</span>
-  </div>
-
-  <!-- MOBILE NAV OVERLAY (SLIDES FROM RIGHT) -->
-  <nav class="mobile-nav" id="mobileNav">
-    <span class="close-btn" id="closeNavBtn" data-i18n-key="nav_close_btn">&times;</span>
-    <ul>
-      <li><a href="index.html" data-i18n-key="nav_home">Home</a></li>
-      <li>
-        <a href="#" class="submenu-toggle" id="servicesToggle" data-i18n-key="nav_services">Services</a>
-        <div class="mobile-submenu" id="servicesSubmenu">
-          <ul>
-            <li><a href="business-operations.html" data-i18n-key="nav_bo">Business Operations</a></li>
-            <li><a href="contact-center.html" data-i18n-key="nav_cc">Contact Center</a></li>
-            <li><a href="it-support.html" data-i18n-key="nav_it">IT Support</a></li>
-            <li><a href="professionals.html" data-i18n-key="nav_prof">Professionals</a></li>
-          </ul>
-        </div>
-      </li>
-      <li>
-        <!-- LANGUAGE TOGGLE -->
-        <button class="lang-toggle" id="langToggle" data-i18n-key="lang_toggle">EN</button>
-      </li>
-      <li>
-        <!-- CHAT LINK -->
-        <a href="#" class="chat-link" id="chatBtn" data-i18n-key="chat_button">
-          Chat <span class="chat-icon">💬</span>
-        </a>
-      </li>
-    </ul>
-  </nav>
-
-  <!-- MAIN CONTENT -->
-  <header>
-    <h1 data-i18n-key="index_heading1">Welcome to Our Company</h1>
-  </header>
-  <main>
-    <section>
-      <h2 data-i18n-key="index_subheading1">Your Gateway to Efficient Solutions</h2>
-      <p data-i18n-key="index_paragraph1">
-        We specialize in providing comprehensive business services tailored to your unique needs. 
-        Our expert teams manage everything from operational strategy to technical support, ensuring 
-        that your organization runs smoothly and effectively.
-      </p>
-      <p data-i18n-key="index_paragraph2">
-        Explore our services below to learn how we can help streamline your operations, improve customer 
-        engagement, and enhance overall productivity.
-      </p>
-    </section>
-
-    <section>
-      <h2 data-i18n-key="index_subheading2">Featured Highlights</h2>
-      <ul>
-        <li data-i18n-key="index_li1">
-          <strong>Dedicated Teams:</strong> Our staff is highly trained and equipped with the latest technologies.
-        </li>
-        <li data-i18n-key="index_li2">
-          <strong>24/7 Support:</strong> Whether you need quick fixes or in-depth consultation, we’re here around the clock.
-        </li>
-        <li data-i18n-key="index_li3">
-          <strong>Scalable Solutions:</strong> We adapt to businesses of all sizes, from startups to enterprises.
-        </li>
-      </ul>
-    </section>
-  </main>
-
-  <!-- CONTACT US & JOIN US FORMS (HIDDEN) -->
-  <div class="overlay" id="contactFormOverlay">
-    <div class="popup-form">
-      <span class="close-popup" id="closeContactForm" data-i18n-key="form_close_btn">&times;</span>
-      <h2 data-i18n-key="contact_form_title">Contact Us</h2>
-      <form>
-        <label for="contact-name" data-i18n-key="contact_form_name_label">Name:</label>
-        <input type="text" id="contact-name" placeholder="Your Name" required data-i18n-placeholder="contact_form_name_placeholder">
-
-        <label for="contact-email" data-i18n-key="contact_form_email_label">Email:</label>
-        <input type="email" id="contact-email" placeholder="Your Email" required data-i18n-placeholder="contact_form_email_placeholder">
-
-        <label for="contact-msg" data-i18n-key="contact_form_msg_label">Message:</label>
-        <textarea id="contact-msg" placeholder="Your Message" data-i18n-placeholder="contact_form_msg_placeholder"></textarea>
-
-        <button type="submit" data-i18n-key="contact_form_submit">Submit</button>
-      </form>
-    </div>
-  </div>
-
-  <div class="overlay" id="joinFormOverlay">
-    <div class="popup-form">
-      <span class="close-popup" id="closeJoinForm" data-i18n-key="form_close_btn">&times;</span>
-      <h2 data-i18n-key="join_form_title">Join Us</h2>
-      <form>
-        <label for="join-name" data-i18n-key="join_form_name_label">Full Name:</label>
-        <input type="text" id="join-name" placeholder="Your Full Name" required data-i18n-placeholder="join_form_name_placeholder">
-
-        <label for="join-email" data-i18n-key="join_form_email_label">Email:</label>
-        <input type="email" id="join-email" placeholder="Your Email" required data-i18n-placeholder="join_form_email_placeholder">
-
-        <label for="join-position" data-i18n-key="join_form_position_label">Position:</label>
-        <input type="text" id="join-position" placeholder="Position Interested In" data-i18n-placeholder="join_form_position_placeholder">
-
-        <button type="submit" data-i18n-key="join_form_submit">Apply</button>
-      </form>
-    </div>
-  </div>
-
+<!-- ==================================================================
+       JavaScript Files
+       ================================================================== -->
+  <!-- Initialize the Particles Background -->
+  <script src="js/particles-config.js"></script>
+  <!-- Main JS: Handles theme, language, modals, and mobile menu -->
   <script src="js/main.js"></script>
+  <!-- Optional: Service Worker for caching -->
+  <script src="js/service-worker.js"></script> 
 </body>
 </html>
