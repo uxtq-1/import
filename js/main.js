@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
   /* ==================================================================
        2) Language Toggle
        ================================================================== */
-  const languageToggleMobile = document.getElementById('languageToggleMobile');
+  const languageToggleMobile = document.getElementById('language-toggle-mobile');
   let currentLanguage = localStorage.getItem('language') || 'en';
 
   document.body.setAttribute('lang', currentLanguage);
@@ -42,14 +42,6 @@ document.addEventListener('DOMContentLoaded', function() {
         element.textContent = (currentLanguage === 'en')
           ? element.getAttribute('data-en')
           : element.getAttribute('data-es');
-        
-        // Update form labels and placeholders too
-        const formFields = element.closest('form');
-        if (formFields) {
-          formFields.querySelectorAll('[data-en]').forEach((field) => {
-            field.placeholder = currentLanguage === 'en' ? field.getAttribute('data-en') : field.getAttribute('data-es');
-          });
-        }
       });
     }
 
@@ -110,7 +102,7 @@ document.addEventListener('DOMContentLoaded', function() {
   /* ==================================================================
        4) Mobile Services Toggle
        ================================================================== */
- const servicesToggle = document.getElementById('services-toggle');
+  const servicesToggle = document.getElementById('services-toggle');
   const mobileServicesMenu = document.getElementById('mobile-services-menu');
 
   if (servicesToggle && mobileServicesMenu) {
@@ -118,21 +110,5 @@ document.addEventListener('DOMContentLoaded', function() {
       mobileServicesMenu.classList.toggle('active');  // Toggle the visibility of the services menu
     });
   }
-});
-  /* ==================================================================
-       5) Register Service Worker (Optional)
-       ================================================================== */
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-      navigator.serviceWorker.register('/service-worker.js')
-        .then((registration) => {
-          console.log('Service Worker registered:', registration.scope);
-        })
-        .catch((err) => {
-          console.error('SW registration failed:', err);
-        });
-    });
-  }
 
 });
-
