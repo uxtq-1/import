@@ -7,6 +7,12 @@
   box-sizing: border-box;
 }
 
+/* Global: Hide mobile nav and services menu by default */
+#mobileNav,
+.mobile-services-menu {
+  display: none;
+}
+
 body {
   font-family: Arial, sans-serif;
   background-color: #f4f4f4;
@@ -15,6 +21,12 @@ body {
   padding: 20px;
   transition: background-color 0.3s, color 0.3s;
 }
+/* Global: Hide mobile nav and services menu by default */
+#mobileNav,
+.mobile-services-menu {
+  display: none;
+}
+
 
 /* ==================================================================
        Header & Navigation
