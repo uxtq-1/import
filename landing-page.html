@@ -30,7 +30,7 @@
         <li><a href="professionals.html" data-en="Professionals" data-es="Profesionales">Professionals</a></li>
       </ul>
     </nav>
-     <div class="toggle-container">
+    <div class="toggle-container">
       <button id="theme-toggle"></button>
       <button id="language-toggle"></button>
     </div>
@@ -256,29 +256,37 @@
        Mobile Bottom Navigation & Services Menu (Small Screens)
        ================================================================== -->
   <!-- Mobile Bottom Navigation Bar -->
-  <nav class="mobile-nav">
-    <a href="index.html" class="mobile-nav-item">
+  <nav id="mobileNav" role="navigation" aria-label="Mobile Navigation">
+    <!-- Home Button -->
+    <a href="index.html" class="mobile-nav-item" aria-label="Home">
       <i class="fas fa-home"></i>
       <span>Home</span>
     </a>
-    <button class="mobile-nav-item" id="services-toggle">
+    <!-- Services Hamburger Button -->
+    <button class="mobile-nav-item" id="servicesToggle" aria-label="Services">
       <i class="fas fa-bars"></i>
       <span>Services</span>
     </button>
     <!-- Language Toggle -->
-    <button class="mobile-nav-item" id="language-toggle">EN/ES</button>
+    <button class="mobile-nav-item" id="languageToggleMobile" aria-label="Language Toggle">
+      <i class="fas fa-language"></i>
+      <span>EN</span>
+    </button>
     <!-- Theme Toggle -->
-    <button class="mobile-nav-item" id="theme-toggle">Dark/Light</button>
-    <a href="#" class="mobile-nav-item">
+    <button class="mobile-nav-item" id="themeToggleMobile" aria-label="Theme Toggle">
+      <i class="fas fa-adjust"></i>
+      <span>Light</span>
+    </button>
+    <!-- Chat Button -->
+    <button class="mobile-nav-item" id="chatToggle" aria-label="Chat">
       <i class="fas fa-comment-alt"></i>
       <span>Chat</span>
-    </a>
+    </button>
   </nav>
 
   <!-- ==================================================================
        Hidden Mobile Services Menu
        ================================================================== -->
-  <!-- Hidden Mobile Services Menu -->
   <div class="mobile-services-menu" id="mobile-services-menu">
     <ul>
       <li><a href="business-operations.html">Business Operations</a></li>
@@ -287,14 +295,25 @@
       <li><a href="professionals.html">Professionals</a></li>
     </ul>
   </div>
-  
+
   <!-- ==================================================================
-       JavaScript: Main Functionality & Particles Initialization
-       ================================================================== -->
-  <!-- Load particles-config.js first so the background is set up -->
-  <script src="js/particles-config.js"></script>
-  <script src="js/main.js"></script>
-  <script src="js/service-worker.js"></script>
-</body>
+     JavaScript: Main Functionality, Particles Initialization & Mobile Menu Toggle
+     ================================================================== -->
+<script src="js/particles-config.js"></script>
+<script src="js/main.js"></script>
+<script>
+  // Service Worker Registration (must be served over HTTPS or localhost)
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/js/service-worker.js')
+        .then(registration => {
+          console.log('Service Worker registered with scope:', registration.scope);
+        })
+        .catch(err => {
+          console.error('Service Worker registration failed:', err);
+        });
+    });
+  }
+</script>
 </body>
 </html>
