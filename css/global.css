@@ -145,3 +145,18 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* language-toggle-desktop and small screens */
+#language-toggle-desktop,
+#language-toggle-mobile {
+  background-color: #4c3d7d;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  cursor: pointer;
+}
+#language-toggle-desktop:hover,
+#language-toggle-mobile:hover {
+  background-color: #6a55c9;
+}
