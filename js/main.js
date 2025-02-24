@@ -29,12 +29,12 @@ document.addEventListener('DOMContentLoaded', function() {
   /* ==================================================================
        2) Language Toggle
        ================================================================== */
- const languageToggleMobile = document.getElementById('languageToggleMobile');
+  const languageToggleMobile = document.getElementById('languageToggleMobile');
   let currentLanguage = localStorage.getItem('language') || 'en';
 
   document.body.setAttribute('lang', currentLanguage);
-  if (languageToggleButton) {
-    languageToggleButton.textContent = (currentLanguage === 'en') ? 'ES' : 'EN';
+  if (languageToggleMobile) {
+    languageToggleMobile.textContent = (currentLanguage === 'en') ? 'ES' : 'EN';
 
     function updateLanguage() {
       const translationElements = document.querySelectorAll('[data-en]');
@@ -42,14 +42,22 @@ document.addEventListener('DOMContentLoaded', function() {
         element.textContent = (currentLanguage === 'en')
           ? element.getAttribute('data-en')
           : element.getAttribute('data-es');
+        
+        // Update form labels and placeholders too
+        const formFields = element.closest('form');
+        if (formFields) {
+          formFields.querySelectorAll('[data-en]').forEach((field) => {
+            field.placeholder = currentLanguage === 'en' ? field.getAttribute('data-en') : field.getAttribute('data-es');
+          });
+        }
       });
     }
 
     updateLanguage();
 
-    languageToggleButton.addEventListener('click', function() {
+    languageToggleMobile.addEventListener('click', function() {
       currentLanguage = (currentLanguage === 'en') ? 'es' : 'en';
-      languageToggleButton.textContent = (currentLanguage === 'en') ? 'ES' : 'EN';
+      languageToggleMobile.textContent = (currentLanguage === 'en') ? 'ES' : 'EN';
       document.body.setAttribute('lang', currentLanguage);
       updateLanguage();
       localStorage.setItem('language', currentLanguage);
@@ -127,3 +135,4 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
 });
+
