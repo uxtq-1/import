@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
   /* ==================================================================
        2) Language Toggle
        ================================================================== */
-  const languageToggleButton = document.getElementById('language-toggle');
+ const languageToggleMobile = document.getElementById('languageToggleMobile');
   let currentLanguage = localStorage.getItem('language') || 'en';
 
   document.body.setAttribute('lang', currentLanguage);
