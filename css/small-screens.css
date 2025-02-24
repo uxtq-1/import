@@ -16,23 +16,24 @@
     display: none;
   }
 
-/* Mobile Navigation: Rounded Corners */
-#mobileNav {
-  display: flex;
-  position: fixed;
-  bottom: 0;
-  left: 15%; /* 15% margin from left */
-  width: 85%;
-  background: #fff;
-  border-top: 1px solid #ccc;
-  justify-content: space-around;
-  align-items: center;
-  padding: 0.5rem 0;
-  z-index: 3000; /* ensures it's above floating icons */
-  box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease, background-color 0.3s ease;
-  transform: translateY(0);
-  border-radius: 15px; /* Rounded corners */
+@media screen and (max-width: 768px) {
+  #mobileNav {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 15%; /* 15% margin from left */
+    width: 85%; /* 85% width */
+    background: #fff;
+    border-top: 1px solid #ccc;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0.5rem 0;
+    z-index: 3000;
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    transform: translateY(0);
+    border-radius: 15px; /* Rounded corners */
+  }
 }
 
   /* Mobile Navigation Buttons */
