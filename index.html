@@ -1,117 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- ==================================================================
-       Document Metadata & External Resources
-       ================================================================== -->
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ops Online Support - Landing Page</title>
-  
-  <!-- ==================================================================
-       CSS Stylesheets
-       ================================================================== -->
-  <link rel="stylesheet" href="css/global.css">
-  <link rel="stylesheet" media="(max-width:768px)" href="css/small-screens.css">
-  <!-- Font Awesome Stylesheet -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" crossorigin="anonymous">
-  <link rel="manifest" href="manifest.json">
-  <link rel="icon" href="assets/favicon.ico">
-  
-  <!-- ==================================================================
-       Particles.js Library
-       ================================================================== -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ops Online Support - Sample Page</title>
+
+  <!-- Font Awesome for arrow/icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    crossorigin="anonymous"
+  />
+
+  <!-- Main CSS (contains gradient, layouts, etc.) -->
+  <link rel="stylesheet" href="css/global.css" />
+
+  <!-- Particles.js library -->
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-  
-  <!-- ==================================================================
-       Inline CSS: Landing Page Specific Styles & Typewriter Effect
-       ================================================================== -->
-  <style>
-    /* Landing Page Base Styles - Dark Theme */
-    html, body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      font-family: Arial, sans-serif;
-      background: light purple; /* light purple background */
-      color: black;
-      overflow: hidden;
-    }
-    /* Particles Background Container */
-    #particles-js {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-    }
-    /* Landing Content Container */
-    .landing-container {
-      position: relative;
-      z-index: 10;
-      text-align: center;
-      padding-top: 20%;
-    }
-    /* Typewriter Effect for Headline */
-    .typewriter {
-      overflow: hidden;              /* Hide overflowing text */
-      border-right: 0.15em solid #fff; /* Typewriter cursor */
-      white-space: nowrap;           /* Keep text in one line */
-      letter-spacing: 0.15em;
-      font-size: 1.5rem;
-      max-width: 100%;
-      margin: 0 auto;
-      animation: typing 4s steps(40, end) forwards, blink-caret 0.75s step-end infinite;
-    }
-    @keyframes typing {
-      from { width: 0; }
-      to { width: 100%; }
-    }
-    @keyframes blink-caret {
-      from, to { border-color: transparent; }
-      50% { border-color: #fff; }
-    }
-    /* Call-to-Action Button */
-    .cta-button {
-      margin-top: 40px;
-      padding: 15px 30px;
-      font-size: 1.2rem;
-      background-color: #00ffff;
-      color: #000;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
-    .cta-button:hover {
-      background-color: #7e69ab;
-    }
-  </style>
 </head>
 <body>
-  <!-- ==================================================================
-       Particles Background Container
-       ================================================================== -->
+
+  <!-- Particles Background -->
   <div id="particles-js"></div>
-   
-  <!-- ==================================================================
-       Landing Page Content
-       ================================================================== -->
-  <div class="landing-container">
-    <!-- Typewriter Headline -->
-    <h1 class="typewriter">Empowering Your Growth with Cutting-Edge Remote Support</h1>
-    <!-- Optional descriptive text -->
-    <p>Ops Online Support: The Future of Remote Support</p>
-    <!-- Call-to-Action Button -->
-    <button class="cta-button" onclick="window.location.href='landing-page.html'">Click to Advance</button>
+
+  <!-- =========================
+       Desktop Header (Optional)
+       ========================= -->
+  <header class="desktop-header">
+    <nav>
+      <ul>
+        <li><a href="landing-page.html" data-en="Home" data-es="Inicio">Home</a></li>
+        <li><a href="business-operations.html" data-en="Business Operations" data-es="Operaciones">Business Operations</a></li>
+        <li><a href="contact-center.html" data-en="Contact Center" data-es="Contacto">Contact Center</a></li>
+        <li><a href="it-support.html" data-en="IT Support" data-es="Soporte IT">IT Support</a></li>
+        <li><a href="professionals.html" data-en="Professionals" data-es="Profesionales">Professionals</a></li>
+      </ul>
+    </nav>
+    <!-- Language Toggle (Desktop) -->
+    <button id="language-toggle-desktop" class="lang-toggle">EN</button>
+  </header>
+
+  <!-- =========================
+       Main Content
+       ========================= -->
+  <main>
+    <section class="hero">
+      <h2 data-en="Welcome to Ops Online Support" data-es="Bienvenido a Ops Online Support">
+        Welcome to Ops Online Support
+      </h2>
+      <p data-en="Empowering remote solutions with cutting-edge strategies."
+         data-es="Soluciones remotas con estrategias innovadoras.">
+         Empowering remote solutions with cutting-edge strategies.
+      </p>
+    </section>
+    <!-- Your additional page-specific content goes here -->
+  </main>
+
+  <!-- =========================
+       Bottom Nav (Mobile)
+       ========================= -->
+  <nav id="mobileNav">
+    <!-- Left arrow (<) is the main menu trigger -->
+    <button class="mobile-nav-item" id="menu-open" aria-label="Open Menu">
+      <i class="fa-solid fa-arrow-left"></i> <!-- Or a hamburger icon if you prefer -->
+      <span data-en="Menu" data-es="Menú">Menu</span>
+    </button>
+
+    <!-- Language Toggle (Mobile) -->
+    <button class="mobile-nav-item lang-toggle" id="language-toggle-mobile" aria-label="Toggle Language">
+      <i class="fa-solid fa-language"></i>
+      <span>EN</span>
+    </button>
+  </nav>
+
+  <!-- =========================
+       Right-Side Main Menu
+       ========================= -->
+  <div id="rightSideMenu" class="side-menu">
+    <button id="menu-close" class="close-btn" aria-label="Close Menu">
+      <i class="fa-solid fa-arrow-right"></i>
+    </button>
+
+    <ul class="side-menu-list">
+      <li><a href="landing-page.html" data-en="Home" data-es="Inicio">Home</a></li>
+      <li><a href="business-operations.html" data-en="Business Operations" data-es="Operaciones">Business Operations</a></li>
+      <li><a href="contact-center.html" data-en="Contact Center" data-es="Contacto">Contact Center</a></li>
+      <li><a href="it-support.html" data-en="IT Support" data-es="Soporte IT">IT Support</a></li>
+      <li><a href="professionals.html" data-en="Professionals" data-es="Profesionales">Professionals</a></li>
+      <!-- Services Sub-Menu Trigger -->
+      <li class="services-trigger">
+        <button data-en="Services" data-es="Servicios">
+          <i class="fa-solid fa-bars"></i> <!-- hamburger icon -->
+          <span data-en="Services" data-es="Servicios">Services</span>
+        </button>
+      </li>
+    </ul>
+
+    <!-- Upward-Sliding Sub-Menu for "Services" -->
+    <div id="servicesSubMenu" class="sub-menu">
+      <ul>
+        <li><a href="business-operations.html" data-en="Business Ops" data-es="Ops Empresariales">Business Ops</a></li>
+        <li><a href="contact-center.html" data-en="Contact Center" data-es="Centro de Contacto">Contact Center</a></li>
+        <li><a href="it-support.html" data-en="IT Support" data-es="Soporte IT">IT Support</a></li>
+        <li><a href="professionals.html" data-en="Professionals" data-es="Profesionales">Professionals</a></li>
+      </ul>
+    </div>
   </div>
-<!-- ==================================================================
+
+  <!-- =========================
        JavaScript Files
-       ================================================================== -->
-  <!-- Initialize the Particles Background -->
-  <script src="js/particles-config.js"></script>
-  <!-- Main JS: Handles theme, language, modals, and mobile menu -->
-  <script src="js/main.js"></script>
-  <!-- Optional: Service Worker for caching -->
-  <script src="js/service-worker.js"></script> 
+       ========================= -->
+  <script src="js/particles-config.js"></script> <!-- Particles config with pulsing -->
+  <script src="js/main.js"></script>           <!-- Main script: handles language, menu transitions, etc. -->
+
 </body>
 </html>
