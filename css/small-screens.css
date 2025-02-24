@@ -11,32 +11,42 @@
     display: none;
   }
 
-  /* Show bottom mobile nav */
-  .mobile-nav {
+   /* Mobile Navigation - shown on small screens */
+  #mobileNav {
     display: flex;
     position: fixed;
     bottom: 0;
-    left: 0;
-    right: 0;
+    left: 15%;       /* 15% margin from left */
+    width: 85%;      /* occupies the right 85% of the screen */
     background: #fff;
     border-top: 1px solid #ccc;
     justify-content: space-around;
     align-items: center;
     padding: 0.5rem 0;
-    z-index: 3000; /* on top of floating icons */
+    z-index: 3000;   /* ensures it's above floating icons */
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    transform: translateY(0);
   }
-  .mobile-nav-item {
+  /* Mobile Navigation Buttons */
+  #mobileNav a,
+  #mobileNav button {
+    background: none;
+    border: none;
+    font-size: 0.9rem;
+    color: #333;
     display: flex;
     flex-direction: column;
     align-items: center;
-    color: #333;
-    text-decoration: none;
-    font-size: 0.8rem;
   }
-  .mobile-nav-item i {
+  #mobileNav a:focus,
+  #mobileNav button:focus {
+    outline: none;
+  }
+  #mobileNav i {
     font-size: 1.5rem;
+    margin-bottom: 0.2rem;
   }
-
   /* Floating icons, placed lower in z-index */
   .floating-icons {
     position: fixed;
@@ -71,28 +81,26 @@
     margin-bottom: 1rem;
   }
 
-  /* Modal size adjustments */
+   /* Modal size adjustments */
   .modal-content {
     max-width: 95%;
-    height: 85vh;
+    height: 90vh;
   }
   .modal-body form {
     grid-template-columns: 1fr;
    }
 
-  /* Mobile Services Menu */
+ /* Mobile Services Menu - Pops up vertically above the mobile nav */
   .mobile-services-menu {
     position: fixed;
-    bottom: 60px;
-    left: 0;
-    right: 0;
+    bottom: calc(0.5rem + 50px); /* Adjust so it sits above the mobile nav */
+    left: 15%;
+    width: 85%;
     background: #fff;
     border-top: 1px solid #ccc;
     display: none;
-    z-index: 1001;
-    max-height: 50%;
-    overflow-y: auto;
-    padding: 1rem;
+    z-index: 2900;
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
     transition: transform 0.3s ease;
     transform: translateY(100%);
   }
@@ -102,7 +110,7 @@
   }
   .mobile-services-menu ul {
     list-style: none;
-    padding: 0;
+    padding: 1rem;
     margin: 0;
   }
   .mobile-services-menu li {
@@ -118,7 +126,6 @@
     font-size: 1rem;
   }
 }
-
 /* =========================================================
        For screens ≥ 769px, hide mobile nav (redundant but safe)
        ========================================================= */
