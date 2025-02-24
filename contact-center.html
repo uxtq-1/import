@@ -1,114 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-   <!-- ==================================================================
-       Document Metadata & External Resources
-       ================================================================== -->
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Ops Online Support - Contact Center</title>
-  
-    <!-- ==================================================================
-       CSS Stylesheets
-       ================================================================== -->
-  <link rel="stylesheet" href="css/global.css">
-  <link rel="stylesheet" media="(max-width:768px)" href="css/small-screens.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" crossorigin="anonymous">
-  <link rel="manifest" href="manifest.json">
-  <link rel="icon" href="assets/favicon.ico">
-  
-    <!-- ==================================================================
-       Inline CSS: Dark Theme & Typewriter Effect
-       ================================================================== --> 
-  <style>
-    body {
-      background-color: #000;
-      color: #fff;
-    }
-    .typewriter {
-      overflow: hidden;
-      border-right: 0.15em solid #fff;
-      white-space: nowrap;
-      letter-spacing: 0.15em;
-      font-size: 2.5rem;
-      max-width: 100%;
-      margin: 0 auto;
-      animation: typing 4s steps(40, end) forwards, blink-caret 0.75s step-end infinite;
-    }
-    @keyframes typing {
-      from { width: 0; }
-      to { width: 100%; }
-    }
-    @keyframes blink-caret {
-      from, to { border-color: transparent; }
-      50% { border-color: #fff; }
-    }
-  </style>
-  
-  <!-- ==================================================================
-        Particles.js Library
-       ================================================================== --> 
+
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    crossorigin="anonymous"
+  />
+
+  <!-- Global CSS -->
+  <link rel="stylesheet" href="css/global.css" />
+
+  <!-- Particles.js Library -->
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 </head>
 <body>
-   <!-- ==================================================================
-        Particles Background Container
-       ================================================================== --> 
   <div id="particles-js"></div>
   
-    <!-- ==================================================================
-        Header Section: Navigation & Toggle Buttons
-       ================================================================== --> 
-  <header>
+  <!-- Desktop Header -->
+  <header class="desktop-header">
     <nav>
       <ul>
-        <li><a href="index.html" data-en="Home" data-es="Inicio">Home</a></li>
-        <li><a href="business-operations.html" data-en="Business Operations" data-es="Operaciones Empresariales">Business Operations</a></li>
-        <li><a href="contact-center.html" data-en="Contact Center" data-es="Centro de Contacto">Contact Center</a></li>
+        <li><a href="landing-page.html" data-en="Home" data-es="Inicio">Home</a></li>
+        <li><a href="business-operations.html" data-en="Business Operations" data-es="Operaciones">Business Operations</a></li>
+        <li><a href="contact-center.html" data-en="Contact Center" data-es="Contacto">Contact Center</a></li>
         <li><a href="it-support.html" data-en="IT Support" data-es="Soporte IT">IT Support</a></li>
         <li><a href="professionals.html" data-en="Professionals" data-es="Profesionales">Professionals</a></li>
       </ul>
     </nav>
-    <div class="toggle-container">
-      <button id="theme-toggle">Dark</button>
-      <button id="language-toggle">EN/ES</button>
-    </div>
+    <button id="language-toggle-desktop" class="lang-toggle">EN</button>
   </header>
-    <!-- ==================================================================
-        Hero Section: Typewriter Headline & Intro
-       ================================================================== -->
-  <section class="hero">
-    <h2 class="typewriter" data-en="Ops Core Framework Governance: Contact Center" data-es="Gobernanza del Núcleo Operativo: Centro de Contacto">
-      Ops Core Framework Governance: Contact Center
-    </h2>
-    <p data-en="Enhance your customer experience with our advanced contact solutions." data-es="Mejora la experiencia de tus clientes con nuestras soluciones avanzadas de contacto.">
-      Enhance your customer experience with our advanced contact solutions.
-    </p>
-    <img src="assets/images/hero-image.jpg" alt="Contact Center Image" class="hero-image">
-  </section>
-    <!-- ==================================================================
-       Footer Section
-       ================================================================== -->
-  <footer>
-    <p>&copy; 2025 Ops Online Support. All rights reserved.</p>
-  </footer>
-      <!-- ==================================================================
-      Floating Icons (Triggers for Modals)
-       ================================================================== -->
-  <div class="floating-icons">
-    <button class="floating-icon" data-modal="join-modal" aria-label="Join Us" tabindex="0">
-      <i class="fas fa-user-plus"></i>
+
+  <main>
+    <section class="hero">
+      <h2 data-en="Contact Center" data-es="Centro de Contacto">Contact Center</h2>
+      <p data-en="Enhance customer interactions with our contact solutions."
+         data-es="Mejora la interacción con tus clientes con nuestras soluciones.">
+         Enhance customer interactions with our contact solutions.
+      </p>
+    </section>
+  </main>
+
+  <!-- Bottom Nav (Mobile) -->
+  <nav id="mobileNav">
+    <button class="mobile-nav-item" id="menu-open" aria-label="Open Menu">
+      <i class="fa-solid fa-arrow-left"></i>
+      <span data-en="Menu" data-es="Menú">Menu</span>
     </button>
-    <button class="floating-icon" data-modal="contact-modal" aria-label="Contact Us" tabindex="0">
-      <i class="fas fa-envelope-open-text"></i>
+    <button class="mobile-nav-item lang-toggle" id="language-toggle-mobile" aria-label="Toggle Language">
+      <i class="fa-solid fa-language"></i>
+      <span>EN</span>
+    </button>
+  </nav>
+
+  <!-- Right-Side Menu -->
+  <div id="rightSideMenu" class="side-menu">
+    <button id="menu-close" class="close-btn" aria-label="Close Menu">
+      <i class="fa-solid fa-arrow-right"></i>
+    </button>
+    <ul class="side-menu-list">
+      <li><a href="landing-page.html" data-en="Home" data-es="Inicio">Home</a></li>
+      <li><a href="business-operations.html" data-en="Business Operations" data-es="Operaciones">Business Operations</a></li>
+      <li><a href="contact-center.html" data-en="Contact Center" data-es="Contacto">Contact Center</a></li>
+      <li><a href="it-support.html" data-en="IT Support" data-es="Soporte IT">IT Support</a></li>
+      <li><a href="professionals.html" data-en="Professionals" data-es="Profesionales">Professionals</a></li>
+      <li class="services-trigger">
+        <button data-en="Services" data-es="Servicios">
+          <i class="fa-solid fa-bars"></i>
+          <span data-en="Services" data-es="Servicios">Services</span>
+        </button>
+      </li>
+    </ul>
+    <div id="servicesSubMenu" class="sub-menu">
+      <ul>
+        <li><a href="business-operations.html" data-en="Business Ops" data-es="Ops Empresariales">Business Ops</a></li>
+        <li><a href="contact-center.html" data-en="Contact Center" data-es="Centro de Contacto">Contact Center</a></li>
+        <li><a href="it-support.html" data-en="IT Support" data-es="Soporte IT">IT Support</a></li>
+        <li><a href="professionals.html" data-en="Professionals" data-es="Profesionales">Professionals</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Floating Icons -->
+  <div class="floating-icons">
+    <button class="floating-icon" data-modal="join-modal" aria-label="Join Us">
+      <i class="fa-solid fa-user-plus"></i>
+    </button>
+    <button class="floating-icon" data-modal="contact-modal" aria-label="Contact Us">
+      <i class="fa-solid fa-envelope-open-text"></i>
     </button>
   </div>
-  
-  <!-- ==================================================================
-      JavaScript Files
-       ================================================================== -->
+
+  <!-- Join Us Modal -->
+  <div id="join-modal" class="modal-overlay" role="dialog" aria-modal="true">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 data-en="Join Us" data-es="Únete a Nosotros">Join Us</h3>
+        <button class="close-modal" data-close aria-label="Close">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form id="join-form">
+          <!-- your input fields -->
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" form="join-form" class="submit-button" data-en="Submit" data-es="Enviar">Submit</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact Us Modal -->
+  <div id="contact-modal" class="modal-overlay" role="dialog" aria-modal="true">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 data-en="Contact Us" data-es="Contáctenos">Contact Us</h3>
+        <button class="close-modal" data-close aria-label="Close">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form id="contact-form">
+          <!-- your input fields -->
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" form="contact-form" class="submit-button" data-en="Send" data-es="Enviar">Send</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- JS Files -->
   <script src="js/particles-config.js"></script>
   <script src="js/main.js"></script>
-  <script src="js/service-worker.js"></script>
 </body>
 </html>
