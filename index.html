@@ -2,124 +2,128 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Index Page</title>
+  <title data-i18n-key="title_index">Company Landing Page</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- LINK TO SHARED CSS -->
   <link rel="stylesheet" href="css/style.css">
+  <!-- Identify this page in a data attribute for translation lookups -->
+  <meta data-page="index">
 </head>
 <body>
 
-  <!-- ========================================
-       FLOATING CONTACT US & JOIN US ICONS
-       ======================================== -->
-  <!-- These icons remain fixed on the screen -->
+  <!-- FLOATING CONTACT US & JOIN US ICONS -->
   <div class="floating-icons">
-    <!-- CONTACT US BUTTON -->
-    <div class="floating-icon contact-us" id="contactUsBtn">
-      Contact Us
-    </div>
-    <!-- JOIN US BUTTON -->
-    <div class="floating-icon join-us" id="joinUsBtn">
-      Join Us
-    </div>
+    <div class="floating-icon contact-us" id="contactUsBtn" data-i18n-key="contact_us_btn">Contact Us</div>
+    <div class="floating-icon join-us" id="joinUsBtn" data-i18n-key="join_us_btn">Join Us</div>
   </div>
 
-  <!-- ========================================
-       MOBILE NAV TRIGGER (ARROW [<])
-       Only shows on small screens
-       ======================================== -->
+  <!-- MOBILE NAV TRIGGER (ARROW [<]) -->
   <div class="mobile-nav-trigger" id="mobileNavTrigger">
-    <span class="arrow">&lt;</span>
+    <span class="arrow" data-i18n-key="arrow_symbol">&lt;</span>
   </div>
 
-  <!-- ========================================
-       MOBILE NAV OVERLAY (SLIDES FROM RIGHT)
-       ======================================== -->
+  <!-- MOBILE NAV OVERLAY (SLIDES FROM RIGHT) -->
   <nav class="mobile-nav" id="mobileNav">
-    <!-- CLOSE BUTTON (X) -->
-    <span class="close-btn" id="closeNavBtn">&times;</span>
-
-    <!-- MOBILE NAV CONTENT -->
+    <span class="close-btn" id="closeNavBtn" data-i18n-key="nav_close_btn">&times;</span>
     <ul>
-      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html" data-i18n-key="nav_home">Home</a></li>
       <li>
-        <a href="#" class="submenu-toggle" id="servicesToggle">Services</a>
-        <!-- Submenu that slides up on click -->
+        <a href="#" class="submenu-toggle" id="servicesToggle" data-i18n-key="nav_services">Services</a>
         <div class="mobile-submenu" id="servicesSubmenu">
           <ul>
-            <li><a href="business-operations.html">Business Operations</a></li>
-            <li><a href="contact-center.html">Contact Center</a></li>
-            <li><a href="it-support.html">IT Support</a></li>
-            <li><a href="professionals.html">Professionals</a></li>
+            <li><a href="business-operations.html" data-i18n-key="nav_bo">Business Operations</a></li>
+            <li><a href="contact-center.html" data-i18n-key="nav_cc">Contact Center</a></li>
+            <li><a href="it-support.html" data-i18n-key="nav_it">IT Support</a></li>
+            <li><a href="professionals.html" data-i18n-key="nav_prof">Professionals</a></li>
           </ul>
         </div>
       </li>
       <li>
         <!-- LANGUAGE TOGGLE -->
-        <button class="lang-toggle" id="langToggle">EN</button>
+        <button class="lang-toggle" id="langToggle" data-i18n-key="lang_toggle">EN</button>
       </li>
       <li>
-        <!-- CHAT ICON / LINK -->
-        <a href="#" class="chat-link" id="chatBtn">Chat <span class="chat-icon">💬</span></a>
+        <!-- CHAT LINK -->
+        <a href="#" class="chat-link" id="chatBtn" data-i18n-key="chat_button">
+          Chat <span class="chat-icon">💬</span>
+        </a>
       </li>
     </ul>
   </nav>
 
-  <!-- ========================================
-       MAIN CONTENT
-       ======================================== -->
+  <!-- MAIN CONTENT -->
   <header>
-    <h1>Index Page</h1>
+    <h1 data-i18n-key="index_heading1">Welcome to Our Company</h1>
   </header>
   <main>
-    <p>Welcome to the Index page.</p>
-    <p>This demonstrates the main layout with floating icons, mobile nav, and more.</p>
+    <section>
+      <h2 data-i18n-key="index_subheading1">Your Gateway to Efficient Solutions</h2>
+      <p data-i18n-key="index_paragraph1">
+        We specialize in providing comprehensive business services tailored to your unique needs. 
+        Our expert teams manage everything from operational strategy to technical support, ensuring 
+        that your organization runs smoothly and effectively.
+      </p>
+      <p data-i18n-key="index_paragraph2">
+        Explore our services below to learn how we can help streamline your operations, improve customer 
+        engagement, and enhance overall productivity.
+      </p>
+    </section>
+
+    <section>
+      <h2 data-i18n-key="index_subheading2">Featured Highlights</h2>
+      <ul>
+        <li data-i18n-key="index_li1">
+          <strong>Dedicated Teams:</strong> Our staff is highly trained and equipped with the latest technologies.
+        </li>
+        <li data-i18n-key="index_li2">
+          <strong>24/7 Support:</strong> Whether you need quick fixes or in-depth consultation, we’re here around the clock.
+        </li>
+        <li data-i18n-key="index_li3">
+          <strong>Scalable Solutions:</strong> We adapt to businesses of all sizes, from startups to enterprises.
+        </li>
+      </ul>
+    </section>
   </main>
 
-  <!-- ========================================
-       CONTACT US & JOIN US FORMS (HIDDEN)
-       ======================================== -->
+  <!-- CONTACT US & JOIN US FORMS (HIDDEN) -->
   <div class="overlay" id="contactFormOverlay">
     <div class="popup-form">
-      <span class="close-popup" id="closeContactForm">&times;</span>
-      <h2>Contact Us</h2>
+      <span class="close-popup" id="closeContactForm" data-i18n-key="form_close_btn">&times;</span>
+      <h2 data-i18n-key="contact_form_title">Contact Us</h2>
       <form>
-        <label for="contact-name">Name:</label>
-        <input type="text" id="contact-name" placeholder="Your Name" required>
-        
-        <label for="contact-email">Email:</label>
-        <input type="email" id="contact-email" placeholder="Your Email" required>
-        
-        <label for="contact-msg">Message:</label>
-        <textarea id="contact-msg" placeholder="Your Message"></textarea>
-        
-        <button type="submit">Submit</button>
+        <label for="contact-name" data-i18n-key="contact_form_name_label">Name:</label>
+        <input type="text" id="contact-name" placeholder="Your Name" required data-i18n-placeholder="contact_form_name_placeholder">
+
+        <label for="contact-email" data-i18n-key="contact_form_email_label">Email:</label>
+        <input type="email" id="contact-email" placeholder="Your Email" required data-i18n-placeholder="contact_form_email_placeholder">
+
+        <label for="contact-msg" data-i18n-key="contact_form_msg_label">Message:</label>
+        <textarea id="contact-msg" placeholder="Your Message" data-i18n-placeholder="contact_form_msg_placeholder"></textarea>
+
+        <button type="submit" data-i18n-key="contact_form_submit">Submit</button>
       </form>
     </div>
   </div>
 
   <div class="overlay" id="joinFormOverlay">
     <div class="popup-form">
-      <span class="close-popup" id="closeJoinForm">&times;</span>
-      <h2>Join Us</h2>
+      <span class="close-popup" id="closeJoinForm" data-i18n-key="form_close_btn">&times;</span>
+      <h2 data-i18n-key="join_form_title">Join Us</h2>
       <form>
-        <label for="join-name">Full Name:</label>
-        <input type="text" id="join-name" placeholder="Your Full Name" required>
-        
-        <label for="join-email">Email:</label>
-        <input type="email" id="join-email" placeholder="Your Email" required>
-        
-        <label for="join-position">Position:</label>
-        <input type="text" id="join-position" placeholder="Position Interested In">
-        
-        <button type="submit">Apply</button>
+        <label for="join-name" data-i18n-key="join_form_name_label">Full Name:</label>
+        <input type="text" id="join-name" placeholder="Your Full Name" required data-i18n-placeholder="join_form_name_placeholder">
+
+        <label for="join-email" data-i18n-key="join_form_email_label">Email:</label>
+        <input type="email" id="join-email" placeholder="Your Email" required data-i18n-placeholder="join_form_email_placeholder">
+
+        <label for="join-position" data-i18n-key="join_form_position_label">Position:</label>
+        <input type="text" id="join-position" placeholder="Position Interested In" data-i18n-placeholder="join_form_position_placeholder">
+
+        <button type="submit" data-i18n-key="join_form_submit">Apply</button>
       </form>
     </div>
   </div>
 
-  <!-- ========================================
-       JS: link to main.js
-       ======================================== -->
   <script src="js/main.js"></script>
 </body>
 </html>
